@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#21131c">
+<title>Grade 6 Mathematics Revision Hub | Al Kamal American International School</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root{--bg:#171116;--panel:#261a22;--panel2:#34232d;--line:#57404b;--text:#fff4f5;--muted:#c1aeb6;--accent:#d6a0ad;--accent2:#9a6477;--good:#a8d8bd;--bad:#f08b91;--gold:#f3cf8a;--shadow:0 24px 70px #0006}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;color:var(--text);font-family:'DM Sans',sans-serif;background:radial-gradient(ellipse at 12% 0%,#60334466,transparent 42%),radial-gradient(ellipse at 92% 22%,#5b3b4b55,transparent 34%),var(--bg);transition:background .5s,color .3s}
+body[data-theme="blue"]{--bg:#091522;--panel:#142538;--panel2:#1c3349;--line:#36536b;--text:#f0f7ff;--muted:#afc2d2;--accent:#83c7ed;--accent2:#477d9e;--good:#a8dfc6;--bad:#ff969b;--gold:#ffd98e;background:radial-gradient(ellipse at 12% 0%,#1f497066,transparent 42%),radial-gradient(ellipse at 92% 22%,#1b3e5e55,transparent 34%),var(--bg)}
+body[data-theme="mono"]{--bg:#111;--panel:#202020;--panel2:#2b2b2b;--line:#4b4b4b;--text:#f7f7f7;--muted:#bcbcbc;--accent:#e0e0e0;--accent2:#8e8e8e;--good:#c9e3d2;--bad:#efaaaa;--gold:#e8e8e8;background:radial-gradient(ellipse at 12% 0%,#38383866,transparent 42%),radial-gradient(ellipse at 92% 22%,#2b2b2b55,transparent 34%),var(--bg)}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+
+.shell{height:100dvh;width:min(1140px,calc(100% - 36px));margin:auto;padding:16px 0;display:flex;flex-direction:column}
+.topbar{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:5;flex-shrink:0;margin-bottom:10px;gap:10px}
+.brand{display:flex;align-items:center;gap:11px;font:700 14px 'Space Grotesk';letter-spacing:.12em;color:var(--muted);cursor:pointer}
+.brand-mark{width:40px;height:40px;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,var(--panel2),var(--panel));font-size:21px;box-shadow:0 8px 25px #0003}
+.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.credit-pill{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:8px 12px;border-radius:99px;letter-spacing:.04em}
+.nav-pill{font-size:12px;font-weight:700;color:var(--text);border:1px solid var(--line);background:var(--panel);padding:9px 13px;border-radius:12px;transition:.2s}
+.nav-pill:hover{border-color:var(--accent);background:var(--panel2)}
+.icon-btn{width:40px;height:40px;border-radius:13px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:18px;display:grid;place-items:center;transition:.25s}
+.icon-btn:hover{background:var(--panel2);border-color:var(--accent)}
+#settingsOpen:hover{transform:rotate(35deg)}
+
+/* Full-screen animated page stage */
+.page-stage{position:relative;flex:1;min-height:0;overflow:hidden}
+.screen{
+  position:absolute;inset:0;overflow-y:auto;padding:8px 4px 18px;
+  display:flex;flex-direction:column;justify-content:center;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateX(64px) scale(.97);
+  transition:opacity .48s cubic-bezier(.22,1,.36,1),transform .48s cubic-bezier(.22,1,.36,1),visibility 0s linear .48s;
+}
+.screen.top-align{justify-content:flex-start}
+.screen.leaving{
+  opacity:0;visibility:visible;pointer-events:none;
+  transform:translateX(-64px) scale(.97);
+  transition:opacity .42s cubic-bezier(.22,1,.36,1),transform .42s cubic-bezier(.22,1,.36,1),visibility 0s linear .42s;
+}
+.screen.active{
+  opacity:1;visibility:visible;pointer-events:auto;
+  transform:translateX(0) scale(1);
+  transition:opacity .48s cubic-bezier(.22,1,.36,1),transform .48s cubic-bezier(.22,1,.36,1),visibility 0s;
+}
+.screen::-webkit-scrollbar{width:6px}.screen::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+
+/* Intro */
+.intro{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:25px;width:100%}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font:700 clamp(34px,5.2vw,64px)/.98 'Space Grotesk';letter-spacing:-.05em;margin:0 0 18px}
+h1 .line2{display:block;color:var(--accent);text-shadow:0 0 35px color-mix(in srgb,var(--accent) 25%,transparent)}
+.intro-copy{max-width:560px;color:var(--muted);font-size:15px;line-height:1.75}
+.intro-meta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 24px}.meta-chip{border:1px solid var(--line);background:#ffffff08;padding:8px 13px;border-radius:99px;font-size:12px;color:var(--muted)}
+.btn{border:1px solid transparent;border-radius:14px;padding:12px 18px;font-weight:800;transition:transform .2s,filter .2s,background .3s}
+.btn:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.1)}.btn:disabled{opacity:.45;cursor:not-allowed}.btn:focus-visible,.icon-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.primary{background:linear-gradient(115deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#fff));color:#1c1218;box-shadow:0 12px 35px color-mix(in srgb,var(--accent) 22%,transparent)}.secondary{background:var(--panel2);border-color:var(--line);color:var(--text)}.ghost{background:transparent;border-color:var(--line);color:var(--muted)}
+.start-btn{padding:15px 25px;font-size:15px;min-width:205px}
+
+/* Math & Number Line 3D-Style Hero Visual */
+.art-stage{height:360px;display:grid;place-items:center;position:relative;isolation:isolate}
+.orbit{position:absolute;width:min(340px,74vw);aspect-ratio:1;border:1px solid color-mix(in srgb,var(--accent) 24%,transparent);border-radius:50%;animation:spin 28s linear infinite}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid color-mix(in srgb,var(--accent) 18%,transparent);border-radius:50%;inset:32px}
+.orbit:after{inset:66px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.math-card-3d{
+  position:relative;width:305px;padding:22px 18px;border-radius:22px;
+  border:1px solid var(--line);
+  background:linear-gradient(155deg,color-mix(in srgb,var(--panel2) 92%,transparent),color-mix(in srgb,var(--panel) 94%,transparent));
+  backdrop-filter:blur(14px);
+  box-shadow:0 24px 60px #0007,inset 0 1px 0 #ffffff1c;
+  animation:mathFloat 5s ease-in-out infinite;
+  display:flex;flex-direction:column;gap:14px;align-items:center;
+}
+@keyframes mathFloat{50%{transform:translateY(-12px) rotate(1.5deg)}}
+.nl-header{font:700 10px 'Space Grotesk';letter-spacing:.18em;text-transform:uppercase;color:var(--accent);opacity:.9}
+.nl-track{position:relative;width:100%;height:74px;display:flex;align-items:center;justify-content:center}
+.nl-axis{position:absolute;left:8px;right:8px;top:36px;height:3px;background:linear-gradient(90deg,var(--bad),var(--accent),var(--good));border-radius:99px}
+.nl-axis:before,.nl-axis:after{content:"";position:absolute;top:-4px;border:5px solid transparent}
+.nl-axis:before{left:-6px;border-right-color:var(--bad)}
+.nl-axis:after{right:-6px;border-left-color:var(--good)}
+.nl-ticks{position:relative;width:100%;display:flex;justify-content:space-between;padding:0 16px;z-index:2}
+.nl-tick{display:flex;flex-direction:column;align-items:center;gap:6px}
+.nl-tick i{display:block;width:2px;height:12px;background:var(--muted);border-radius:2px}
+.nl-tick span{font:700 11px 'Space Grotesk';color:var(--muted)}
+.nl-tick.origin i{height:18px;width:3px;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.nl-tick.origin span{color:var(--gold);font-size:13px}
+.nl-tick.opp-left .nl-dot,.nl-tick.opp-right .nl-dot{
+  position:absolute;top:29px;width:14px;height:14px;border-radius:50%;
+  box-shadow:0 0 16px currentColor;
+}
+.nl-tick.opp-left .nl-dot{background:var(--bad);color:var(--bad)}
+.nl-tick.opp-right .nl-dot{background:var(--good);color:var(--good)}
+.nl-arc{
+  position:absolute;top:8px;left:22%;right:22%;height:20px;
+  border:1.5px dashed var(--accent);border-bottom:none;border-radius:99px 99px 0 0;opacity:.75;
+}
+.nl-sub{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.nl-pill{font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;background:#ffffff0a;border:1px solid var(--line);color:var(--text)}
+
+.float-label{position:absolute;padding:9px 13px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(12px);font-size:12px;font-weight:700;color:var(--text);box-shadow:0 10px 28px #0005;animation:labelFloat 4s ease-in-out infinite}
+.float-label.one{top:8%;left:0}.float-label.two{bottom:10%;right:0;animation-delay:-2s}
+@keyframes labelFloat{50%{transform:translateY(-8px)}}
+
+.section-card{background:linear-gradient(145deg,var(--panel),color-mix(in srgb,var(--panel) 82%,#000));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+
+/* Dashboard */
+.dash-wrap{width:min(1060px,100%);margin:0 auto;padding:4px 0}
+.dash-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.dash-head h2{font:700 clamp(22px,3.6vw,36px) 'Space Grotesk';margin:4px 0 0;letter-spacing:-.04em}
+.mastery-pill{border:1px solid var(--line);background:var(--panel);padding:9px 15px;border-radius:15px;font-size:13px;color:var(--muted)}
+.mastery-pill strong{color:var(--accent);font-size:16px}
+.lessons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:16px}
+.lesson-card{
+  padding:17px 18px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;gap:10px;
+  transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden;
+}
+.lesson-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 20px 50px #0008}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.lesson-num{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.score-badge{font-size:11px;font-weight:800;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);white-space:nowrap}
+.score-badge.done{border-color:var(--good);color:var(--good);background:#23423366}
+.lesson-card h3{font:700 18px 'Space Grotesk';margin:4px 0 4px;color:var(--text)}
+.lesson-card p{margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)}
+.card-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:8px;border-top:1px solid #ffffff12}
+.card-tags{font-size:11px;color:var(--muted)}
+.card-cta{font-size:12px;font-weight:800;color:var(--accent)}
+
+/* Centered Bottom Final Worksheet Card */
+.worksheet-row{display:flex;justify-content:center}
+.worksheet-card{
+  width:min(820px,100%);padding:20px 24px;text-align:center;
+  border:1.5px solid var(--gold);
+  background:radial-gradient(circle at 50% 0%,color-mix(in srgb,var(--gold) 18%,transparent),transparent 70%),linear-gradient(145deg,var(--panel2),var(--panel));
+  box-shadow:0 20px 60px #0008;
+  transition:transform .25s,box-shadow .25s;
+}
+.worksheet-card:hover{transform:translateY(-3px);box-shadow:0 26px 70px #000a}
+.worksheet-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.worksheet-card h3{font:700 22px 'Space Grotesk';margin:0 0 6px}
+.worksheet-card p{margin:0 auto 12px;max-width:600px;font-size:13px;line-height:1.55;color:var(--muted)}
+.ws-modes{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:13px}
+.ws-mode-btn{border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:7px 12px;border-radius:10px;font-size:12px;font-weight:700;transition:.2s}
+.ws-mode-btn.active{border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 14%,var(--panel))}
+.worksheet-meta{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* YouTube Video Launcher Card */
+.lesson-wrap{width:min(940px,100%);margin:0 auto}
+.lesson-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:12px;flex-wrap:wrap}
+.kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.lesson-head h2,.quiz-heading{font:700 clamp(21px,3.2vw,32px) 'Space Grotesk';margin:4px 0 0;letter-spacing:-.04em}
+.lesson-screen{padding:clamp(18px,2.8vw,26px)}
+.video-layout{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;align-items:stretch}
+.video-launcher{
+  position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);
+  background:#120d11;aspect-ratio:16/9;width:100%;display:grid;place-items:center;cursor:pointer;
+  transition:border-color .25s,transform .25s;
+}
+.video-launcher:hover{border-color:var(--accent);transform:translateY(-2px)}
+.video-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38;transition:opacity .3s,transform .4s}
+.video-launcher:hover .video-thumb{opacity:.5;transform:scale(1.03)}
+.video-overlay{
+  position:relative;z-index:2;text-align:center;padding:20px;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.yt-play-circle{
+  width:68px;height:68px;border-radius:50%;background:#ff0033;color:#fff;
+  display:grid;place-items:center;font-size:26px;box-shadow:0 14px 36px #ff003366;
+  transition:transform .25s;
+}
+.video-launcher:hover .yt-play-circle{transform:scale(1.1)}
+.video-overlay h3{font:700 20px 'Space Grotesk';margin:0;color:#fff;text-shadow:0 2px 14px #000}
+.video-overlay p{margin:0;font-size:13px;color:#f3e6ea;max-width:340px;text-shadow:0 1px 10px #000}
+
+.video-notes{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.video-notes h4{font:700 15px 'Space Grotesk';margin:0 0 8px;color:var(--accent)}
+.video-notes ul{margin:0;padding-left:17px;color:var(--muted);font-size:13px;line-height:1.6}
+.video-notes li{margin-bottom:6px}
+.custom-vid-row{display:flex;gap:6px;margin-top:6px}
+.custom-vid-row input{flex:1;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font-size:12px}
+.custom-vid-row button{padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:11px;font-weight:800}
+.lesson-controls{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.lesson-controls .left,.lesson-controls .right{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+
+/* Quiz & Final Worksheet Screen */
+.quiz-layout{width:min(900px,100%);margin:0 auto}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:10px;flex-wrap:wrap}
+.counter{font-size:12px;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:10px}
+.jump-select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:12px;font-weight:700;max-width:210px}
+.topic{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.progress{height:6px;border-radius:20px;background:var(--panel2);overflow:hidden;margin-bottom:14px}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .4s}
+.quiz-card{padding:clamp(18px,3vw,28px)}
+.question{font:600 clamp(17px,2.35vw,21px)/1.45 'Space Grotesk';margin:6px 0 14px;white-space:pre-line}
+.keyboard-hint{font-size:11px;color:var(--muted);display:flex;gap:7px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.key{display:inline-grid;place-items:center;min-width:22px;height:22px;border:1px solid var(--line);border-bottom-width:3px;border-radius:7px;background:var(--panel2);font-weight:800;color:var(--text);padding:0 5px}
+.options{display:grid;gap:8px}.option{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:12px 14px;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:13px;transition:.2s}
+.option:hover:not(:disabled){transform:translateX(4px);border-color:var(--accent);background:var(--panel2)}
+.letter{width:28px;height:28px;flex:0 0 28px;display:grid;place-items:center;border-radius:8px;background:var(--panel2);color:var(--accent);font-weight:800;font-size:13px}
+.option.correct{border-color:var(--good);background:#23423366}.option.wrong{border-color:var(--bad);background:#55252b66}.option:disabled{cursor:default}
+
+/* Clean Stacked Fraction Styling */
+.frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 3px;font-size:.82em;line-height:1.05;font-weight:700}
+.frac .num{border-bottom:1.5px solid currentColor;padding:0 3px 1px;display:block}
+.frac .den{padding:1px 3px 0;display:block}
+.mixed{display:inline-flex;align-items:center;gap:1px;vertical-align:middle}
+.mixed .whole{font-weight:700}
+
+/* Data Tables & Diagrams inside Questions */
+.data-table-wrap{margin:10px 0 14px;overflow-x:auto;border-radius:14px;border:1px solid var(--line);background:var(--panel2)}
+.data-table{width:100%;border-collapse:collapse;font-size:13.5px;text-align:center}
+.data-table th,.data-table td{padding:10px 12px;border-bottom:1px solid var(--line);border-right:1px solid #ffffff12}
+.data-table th{background:color-mix(in srgb,var(--accent) 16%,var(--panel));color:var(--accent);font-family:'Space Grotesk';font-weight:700}
+.data-table tr:last-child td{border-bottom:none}
+.data-table td:last-child,.data-table th:last-child{border-right:none}
+
+.diagram-box{margin:10px 0 14px;padding:14px;border-radius:16px;border:1px solid var(--line);background:#ffffff;color:#111;display:flex;justify-content:center;align-items:center;overflow-x:auto}
+.diagram-box svg{max-width:100%;height:auto;max-height:220px}
+.written-area{width:100%;min-height:92px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--text);resize:vertical;line-height:1.6;outline:none}
+.written-area:focus{border-color:var(--accent)}
+.mark-scheme{margin-top:12px;padding:14px 16px;border-radius:14px;border:1px solid var(--accent);background:var(--panel2)}
+.mark-scheme h4{margin:0 0 8px;font:700 14px 'Space Grotesk';color:var(--accent)}
+.mark-scheme ol{margin:0 0 12px;padding-left:20px;color:var(--text);font-size:13.5px;line-height:1.65}
+.mark-scheme li{margin-bottom:5px}
+.self-grade-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:10px;border-top:1px solid #ffffff18}
+.self-grade-row span{font-size:12px;font-weight:700;color:var(--muted)}
+.grade-chip{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:7px 13px;border-radius:10px;font-size:12px;font-weight:800;transition:.2s}
+.grade-chip:hover{border-color:var(--accent);background:var(--panel2)}
+.grade-chip.selected-full{border-color:var(--good);background:#23423388;color:var(--good)}
+.grade-chip.selected-part{border-color:var(--gold);background:#4b3c1d88;color:var(--gold)}
+.grade-chip.selected-zero{border-color:var(--bad);background:#55252b88;color:var(--bad)}
+
+.feedback{display:none;margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--panel2);line-height:1.6;font-size:13.5px;color:var(--muted)}
+.feedback.show{display:block;animation:sceneIn .3s ease}.feedback strong{color:var(--accent)}
+@keyframes sceneIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.quiz-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px}.status{font-size:12px;color:var(--muted)}
+
+/* Result */
+.result{width:min(660px,100%);margin:0 auto;padding:36px 25px;text-align:center}
+.result-pct{font:700 68px 'Space Grotesk';color:var(--accent);margin:8px 0 2px;line-height:1}
+.result-raw{font-size:15px;font-weight:700;color:var(--muted);margin-bottom:10px}
+.result h2{font:700 30px 'Space Grotesk';margin:5px}.result p{color:var(--muted);line-height:1.7}
+.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+footer{text-align:center;color:var(--muted);font-size:11px;opacity:.75;flex-shrink:0;padding-top:6px;letter-spacing:.08em}
+
+/* Settings & Music Popout */
+.settings-backdrop{position:fixed;inset:0;background:#08060bd9;backdrop-filter:blur(8px);z-index:20;display:none;align-items:flex-start;justify-content:flex-end;padding:18px}
+.settings-backdrop.open{display:flex;animation:fade .2s ease}@keyframes fade{from{opacity:0}to{opacity:1}}
+.settings-panel{width:min(400px,100%);padding:23px;background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);animation:panelIn .3s ease}
+@keyframes panelIn{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}
+.settings-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.settings-title h2{font:700 22px 'Space Grotesk';margin:0}
+.setting-label{display:block;font-size:12px;color:var(--muted);font-weight:700;margin:16px 0 8px}
+.theme-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.theme-choice{border:1px solid var(--line);border-radius:12px;padding:10px 5px;background:var(--panel2);color:var(--text);font-size:11px}
+.theme-choice.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.swatch{height:22px;border-radius:7px;margin-bottom:7px}.swatch.burgundy{background:linear-gradient(90deg,#24151f,#a36c7d)}.swatch.blue{background:linear-gradient(90deg,#091522,#69a7d1)}.swatch.mono{background:linear-gradient(90deg,#111,#ddd)}
+.youtube-input{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--text);outline:none}
+.youtube-input:focus{border-color:var(--accent)}
+.setting-note{font-size:11px;color:var(--muted);line-height:1.6;margin-top:8px}
+
+.music-mini{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:9;display:none;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);padding:12px 14px;font-size:12px;font-weight:700;box-shadow:var(--shadow)}
+.music-mini.visible{display:block}
+.music-mini:hover{border-color:var(--accent);color:var(--accent)}
+
+@media(max-width:960px){
+  .lessons-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:860px){
+  .intro{grid-template-columns:1fr;gap:14px}
+  .art-stage{height:220px}.math-card-3d{transform:scale(.82)}
+  .lessons-grid{grid-template-columns:1fr}
+  .video-layout{grid-template-columns:1fr}
+  .music-mini{left:10px;top:auto;bottom:10px;transform:none}
+  .credit-pill{display:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body data-theme="burgundy">
+<div class="shell">
+<header class="topbar">
+  <div class="brand" id="brandHome" title="Back to welcome"><div class="brand-mark">📐</div><span>THE MATH LAB · GR 6</span></div>
+  <div class="top-actions">
+    <button class="nav-pill" id="navDashboard" style="display:none">☰ All Lessons</button>
+    <button class="nav-pill" id="soundToggle" title="Toggle answer sound effects">🔊 SFX: ON</button>
+    <span class="credit-pill">GRADE 6 MATHEMATICS · AL KAMAL AMERICAN INTERNATIONAL SCHOOL</span>
+    <button class="icon-btn" id="settingsOpen" aria-label="Open settings" title="Settings">⚙</button>
+  </div>
+</header>
+
+<main class="page-stage">
+<!-- SCREEN 1: INTRO -->
+<section class="screen active" id="intro">
+ <div class="intro">
+  <div>
+   <div class="eyebrow">Grade 6 Mathematics · Units 2 &amp; 3</div>
+   <h1><span class="line1">FRACTIONS &amp;</span><span class="line2">RATIONAL NUMBERS</span><span style="font-size:.46em;letter-spacing:.02em;color:var(--text)">REVISION HUB</span></h1>
+   <p class="intro-copy">Master multiplying &amp; dividing fractions, mixed numbers, integers, rational numbers, and absolute value for your exam 📐</p>
+   <div class="intro-meta"><span class="meta-chip">✦ 6 Video Lessons</span><span class="meta-chip">✦ 60 Lesson Practice Questions</span><span class="meta-chip">✦ Complete Revision Worksheet (All 5 Parts)</span></div>
+   <button class="btn primary start-btn" id="startJourney">Start experience <span>→</span></button>
+  </div>
+  <div class="art-stage" aria-hidden="true">
+   <div class="orbit"></div>
+   <div class="math-card-3d">
+    <div class="nl-header">Interactive Number Line · Opposites</div>
+    <div class="nl-track">
+     <div class="nl-arc"></div>
+     <div class="nl-axis"></div>
+     <div class="nl-ticks">
+      <div class="nl-tick"><i></i><span>−3</span></div>
+      <div class="nl-tick opp-left"><span class="nl-dot"></span><i></i><span>−2</span></div>
+      <div class="nl-tick"><i></i><span>−1</span></div>
+      <div class="nl-tick origin"><i></i><span>0</span></div>
+      <div class="nl-tick"><i></i><span>1</span></div>
+      <div class="nl-tick opp-right"><span class="nl-dot"></span><i></i><span>2</span></div>
+      <div class="nl-tick"><i></i><span>3</span></div>
+     </div>
+    </div>
+    <div class="nl-sub">
+     <span class="nl-pill">2 units left</span>
+     <span class="nl-pill" style="color:var(--gold)">Origin = 0</span>
+     <span class="nl-pill">2 units right</span>
+    </div>
+   </div>
+   <div class="float-label one">a/b × c/d = ac/bd</div>
+   <div class="float-label two">|-4| = |4| = 4</div>
+  </div>
+ </div>
+</section>
+
+<!-- SCREEN 2: LESSON DASHBOARD -->
+<section class="screen top-align" id="dashboard">
+ <div class="dash-wrap">
+  <div class="dash-head">
+   <div>
+    <div class="kicker">Al Kamal American International School · Units 2 &amp; 3</div>
+    <h2>Choose a lesson or final revision worksheet</h2>
+   </div>
+   <div class="mastery-pill" id="masteryPill">Completed: <strong>0 / 7</strong></div>
+  </div>
+
+  <div class="lessons-grid" id="lessonsGrid"></div>
+
+  <div class="worksheet-row">
+   <div class="section-card worksheet-card" id="worksheetCard">
+    <div class="worksheet-badge">★ Capstone Assessment · Units 2 &amp; 3 Revision Worksheet</div>
+    <h3>Final Revision Worksheet (All 5 Parts · 34 Questions)</h3>
+    <p>Complete exam preparation covering all multiple-choice questions, data tables, fraction &amp; mixed-number operations, bar models, number lines, and error analysis with official answer keys.</p>
+    <div class="ws-modes">
+     <button type="button" class="ws-mode-btn active" data-ws-mode="all">All Worksheet Questions (Parts 1–5 · 34 Questions)</button>
+     <button type="button" class="ws-mode-btn" data-ws-mode="part1">Part 1 Only (15 Multiple-Choice Questions)</button>
+     <button type="button" class="ws-mode-btn" data-ws-mode="parts2to5">Parts 2–5 Only (19 Data, Solving, Models &amp; Reasoning Questions)</button>
+    </div>
+    <div class="worksheet-meta">
+     <span class="score-badge" id="wsBadge">Not attempted</span>
+     <button class="btn primary" id="startWorksheetBtn">Start Final Worksheet →</button>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- SCREEN 3: YOUTUBE VIDEO LAUNCHER -->
+<section class="screen" id="lesson">
+ <div class="lesson-wrap">
+  <div class="lesson-head">
+   <div><div class="kicker" id="lessonKicker">Unit 2, Lesson 1 · YouTube Video Explainer</div><h2 id="lessonTitle">Title</h2></div>
+  </div>
+  <div class="section-card lesson-screen">
+   <div class="video-layout">
+    <div class="video-launcher" id="videoLauncherCard" role="button" tabindex="0" aria-label="Open video on YouTube">
+     <img class="video-thumb" id="videoThumbImg" alt="Video thumbnail">
+     <div class="video-overlay">
+      <div class="yt-play-circle">▶</div>
+      <h3 id="videoCardHeading">Watch Video Explainer</h3>
+      <p>Click to watch this math concept explained clearly on YouTube, then return here to solve 10 practice questions.</p>
+      <span class="btn primary" style="margin-top:4px">▶ Open Video on YouTube</span>
+     </div>
+    </div>
+    <div class="video-notes">
+     <div>
+      <h4>Key Concepts &amp; Formulas</h4>
+      <ul id="lessonNotesList"></ul>
+     </div>
+     <div>
+      <div style="font-size:11px;color:var(--muted);font-weight:700">Replace with your teacher’s YouTube link:</div>
+      <div class="custom-vid-row">
+       <input id="customLessonVidInput" type="url" placeholder="Paste YouTube URL...">
+       <button id="saveLessonVidBtn" type="button">Save</button>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="lesson-controls">
+    <div class="left">
+     <button class="btn ghost" id="lessonToDash">☰ Dashboard</button>
+    </div>
+    <div class="right">
+     <button class="btn primary" id="startLessonQuizBtn">Start 10 Practice Questions →</button>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- SCREEN 4: PRACTICE QUIZ / WORKSHEET -->
+<section class="screen top-align" id="quiz">
+ <div class="quiz-layout">
+  <div class="quiz-top">
+   <div><div class="kicker" id="quizModuleKicker">Lesson Practice</div><div class="quiz-heading" id="quizHeading">Your turn.</div></div>
+   <div class="counter">
+    <select class="jump-select" id="jumpSelect" title="Jump to any question"></select>
+    <span id="counter">Question 1</span>
+   </div>
+  </div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <div class="section-card quiz-card">
+   <div class="topic" id="topic"></div>
+   <h2 class="question" id="question"></h2>
+   <div id="tableSlot"></div>
+   <div id="diagramSlot"></div>
+   <div class="keyboard-hint" id="kbHint">Quick answer <span class="key">1</span> A <span class="key">2</span> B <span class="key">3</span> C <span class="key">4</span> D <span style="margin-left:5px">·</span><span class="key">Enter</span> Next</div>
+   <div class="options" id="options"></div>
+   <div id="writtenSlot"></div>
+   <div class="feedback" id="feedback"></div>
+   <div class="quiz-bottom">
+    <span class="status" id="status">Choose the best answer.</span>
+    <div style="display:flex;gap:8px">
+     <button class="btn ghost" id="prevBtn" style="padding:10px 14px">← Prev</button>
+     <button class="btn primary" id="nextBtn" disabled>Next question →</button>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- SCREEN 5: LESSON SCORE & NEXT STEP -->
+<section class="screen" id="result">
+ <div class="section-card result">
+  <div class="kicker" id="resultKicker">Lesson Complete</div>
+  <h2 id="resultTitle">Well done!</h2>
+  <div class="result-pct" id="scorePct">100%</div>
+  <div class="result-raw" id="scoreRaw">10 / 10 correct</div>
+  <p id="resultText"></p>
+  <div class="result-actions">
+   <button class="btn primary" id="nextLessonBtn">Next Lesson →</button>
+   <button class="btn secondary" id="retryBtn">Retry ↻</button>
+   <button class="btn ghost" id="resultDashBtn">All Lessons</button>
+  </div>
+ </div>
+</section>
+</main>
+<footer>GRADE 6 MATHEMATICS · AL KAMAL AMERICAN INTERNATIONAL SCHOOL · <strong>MADE BY YUSUF GHONEIM</strong></footer>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="settings-backdrop" id="settingsBackdrop">
+ <aside class="settings-panel" role="dialog" aria-modal="true" aria-label="Website settings">
+  <div class="settings-title"><h2>Settings</h2><button class="icon-btn" id="settingsClose" aria-label="Close settings">×</button></div>
+  <label class="setting-label">Choose your theme</label>
+  <div class="theme-options">
+   <button class="theme-choice active" data-theme-choice="burgundy"><div class="swatch burgundy"></div>Burgundy / Gray</button>
+   <button class="theme-choice" data-theme-choice="blue"><div class="swatch blue"></div>Blue</button>
+   <button class="theme-choice" data-theme-choice="mono"><div class="swatch mono"></div>Black &amp; White</button>
+  </div>
+  <label class="setting-label" for="youtubeLink">Study Soundtrack (YouTube Music link)</label>
+  <input class="youtube-input" id="youtubeLink" type="url" placeholder="https://music.youtube.com/watch?v=...">
+  <button class="btn primary" id="saveYoutube" style="width:100%;margin-top:10px">Open Study Soundtrack</button>
+  <p class="setting-note">Opens your YouTube Music playlist in a clean mini-window so your music plays smoothly while you practice math.</p>
+ </aside>
+</div>
+
+<button class="music-mini" id="musicMini">▶ Open Study Music</button>
+
+<script>
+/* Web Audio Synthesizer for Correct & Incorrect Sound Effects */
+let soundEnabled = true;
+let audioCtx = null;
+function playSFX(type) {
+  if (!soundEnabled) return;
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const now = audioCtx.currentTime;
+    if (type === 'correct') {
+      [523.25, 659.25, 783.99].forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.085);
+        gain.gain.setValueAtTime(0.001, now + idx * 0.085);
+        gain.gain.exponentialRampToValueAtTime(0.18, now + idx * 0.085 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.085 + 0.34);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now + idx * 0.085);
+        osc.stop(now + idx * 0.085 + 0.36);
+      });
+    } else {
+      [329.63, 233.08].forEach((freq, idx) => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.13);
+        gain.gain.setValueAtTime(0.001, now + idx * 0.13);
+        gain.gain.exponentialRampToValueAtTime(0.11, now + idx * 0.13 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.13 + 0.28);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now + idx * 0.13);
+        osc.stop(now + idx * 0.13 + 0.3);
+      });
+    }
+  } catch {}
+}
+
+/* Format Fractions, Mixed Numbers, and Absolute Value nicely in HTML */
+function fmtMath(str) {
+  if (!str) return '';
+  let s = String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  // Mixed numbers like 1 1/2 or -8 3/4 (when preceded by space, start, sign, or punctuation)
+  s = s.replace(/(^|[\s(\[=:,×÷+\-−])(\d+)\s+(\d+)\/(\d+)(?=[\s)\]=:,.;?!×÷+\-−°a-zA-Z]|$)/g,
+    '$1<span class="mixed"><span class="whole">$2</span><span class="frac"><span class="num">$3</span><span class="den">$4</span></span></span>');
+  // Simple fractions like 3/4 or 21/26 (avoiding URLs or dates)
+  s = s.replace(/(^|[\s(\[=:,×÷+\-−|])(\d+)\/(\d+)(?=[\s)\]=:,.;?!×÷+\-−|°a-zA-Z]|$)/g,
+    '$1<span class="frac"><span class="num">$2</span><span class="den">$3</span></span>');
+  return s;
+}
+
+/* 6 Video Lessons from Grade 6 PowerPoint PDFs */
+const LESSONS = [
+  {
+    id: 'u2l1',
+    num: 'Unit 2 · Lesson 1',
+    title: 'Multiply Fractions',
+    desc: 'Area models ("part of a part"), multiplying numerators & denominators, cross-simplifying, and mixed numbers.',
+    tags: 'YouTube Video · 10 Questions',
+    defaultVideoId: 'qmfXyR7Z6Lk',
+    notes: [
+      '<strong>Part of a Part:</strong> An area model shades one fraction in columns and the second in rows; the <strong>overlap</strong> is the product.',
+      '<strong>Fraction Rule:</strong> Multiply numerators together and denominators together: <strong>(a/b) × (c/d) = (ac)/(bd)</strong>.',
+      '<strong>Simplify First:</strong> Divide a numerator and denominator by their <strong>GCF</strong> before multiplying to keep numbers small.',
+      '<strong>Mixed Numbers:</strong> Rename mixed numbers as <strong>improper fractions</strong> first, simplify, multiply, and convert back.'
+    ],
+    questions: [
+      {t:'Warm-Up · Recipe Scenario',q:'A full recipe uses 3/4 cup of sugar. Adam decides to make 2/3 of the recipe. How much sugar will Adam use?',o:['1/2 cup','5/7 cup','6/7 cup','1 5/12 cups'],a:0,e:'Multiply 3/4 × 2/3 = 6/12, which simplifies to 1/2 cup of sugar.'},
+      {t:'Concept 1 · Area Models',q:'In an area model for 1/3 × 1/2, a rectangle is divided into 3 equal columns (1 shaded) and 2 equal rows (1 shaded). What fraction represents the overlapping section?',o:['1/6','2/5','1/5','3/2'],a:0,e:'1 overlapping part out of 3 × 2 = 6 total equal parts gives 1/6.'},
+      {t:'Concept 1 · Area Model Example 2',q:'Using an area model for 3/4 × 2/3 (4 columns with 3 shaded, 3 rows with 2 shaded), how many overlapping sections are there out of 12 total sections?',o:['6 overlapping sections (6/12 = 1/2)','5 overlapping sections (5/12)','8 overlapping sections (8/12 = 2/3)','3 overlapping sections (3/12 = 1/4)'],a:0,e:'3 shaded columns × 2 shaded rows = 6 overlapping parts out of 12 total parts, which simplifies to 1/2.'},
+      {t:'Concept 1 · Give It a Go!',q:'Dani walked 3/4 km in the morning. In the afternoon, he walked 2/3 of that distance. How far did Dani walk in the afternoon?',o:['1/2 km','1 5/12 km','5/7 km','1/4 km'],a:0,e:'Finding "part of a part" means multiplying: 3/4 × 2/3 = 6/12 = 1/2 km.'},
+      {t:'Concept 2 · Multiply Numerators & Denominators',q:'Find the product in simplest form: 2/3 × 4/5',o:['8/15','6/8','8/8','10/12'],a:0,e:'Multiply numerators (2 × 4 = 8) and denominators (3 × 5 = 15) to get 8/15.'},
+      {t:'Concept 2 · Simplify Before Multiplying',q:'Find the product in simplest form by cross-simplifying first: 3/8 × 4/9',o:['1/6','7/17','12/36','3/18'],a:0,e:'Divide 3 and 9 by 3 (giving 1 and 3), and divide 4 and 8 by 4 (giving 1 and 2). Then 1/2 × 1/3 = 1/6.'},
+      {t:'Concept 2 · Vegetable Stew',q:'A batch of vegetable stew requires 3/4 tablespoon of cinnamon. Daima is making 2/3 of a batch. How much cinnamon will she need?',o:['1/2 tablespoon','5/7 tablespoon','6/7 tablespoon','1/3 tablespoon'],a:0,e:'3/4 × 2/3 = 6/12 = 1/2 tablespoon of cinnamon.'},
+      {t:'Concept 3 · Multiply Mixed Numbers',q:'Find the product: 1 1/2 × 2 2/3',o:['4','3 1/3','2 2/6','3'],a:0,e:'Convert to improper fractions: 1 1/2 = 3/2 and 2 2/3 = 8/3. Multiply: 3/2 × 8/3 = 24/6 = 4.'},
+      {t:'Concept 3 · Simplify & Multiply',q:'Find the product: 2 1/4 × 1 1/3',o:['3','2 1/12','3 1/4','4'],a:0,e:'Convert to improper fractions: 9/4 × 4/3. Cancel the common factor 4 to get 9/3 = 3.'},
+      {t:'Concept 3 · Real-World Distance',q:'Galena ran 2 1/2 km in one hour. At the same pace, how far can she run in 1 1/2 hours?',o:['3 3/4 km','3 1/4 km','4 km','2 1/4 km'],a:0,e:'Convert to improper fractions: 5/2 × 3/2 = 15/4 = 3 3/4 km.'}
+    ]
+  },
+  {
+    id: 'u2l2',
+    num: 'Unit 2 · Lesson 2',
+    title: 'Divide Fractions',
+    desc: 'Double bar diagrams, finding how many equal groups fit into a quantity, and multiplying by the reciprocal.',
+    tags: 'YouTube Video · 10 Questions',
+    defaultVideoId: '4lkq3DgvmJo',
+    notes: [
+      '<strong>Meaning of Division:</strong> Dividing fractions finds <strong>how many equal groups</strong> of one quantity fit into another.',
+      '<strong>Double Bar Models:</strong> Use two aligned bars (and common denominators when needed) to count equal groups visually.',
+      '<strong>Reciprocal (Multiplicative Inverse):</strong> Switch the numerator and denominator of a fraction (e.g., reciprocal of 2/3 is <strong>3/2</strong>).',
+      '<strong>Division Rule:</strong> Keep the first fraction, change ÷ to ×, and multiply by the <strong>reciprocal</strong> of the second fraction.'
+    ],
+    questions: [
+      {t:'Activate Your Mind · Field Trip',q:'Volunteers have 4 full cups of trail mix. Each student snack bag must contain exactly 2/3 cup. How many complete snack bags can they prepare?',o:['6 snack bags','8 snack bags','2 2/3 snack bags','3 snack bags'],a:0,e:'4 ÷ 2/3 = 4 × 3/2 = 12/2 = 6 complete snack bags.'},
+      {t:'Concept 1 · Double Bar Diagram',q:'In a double bar diagram for 3 ÷ 3/4, the top bar shows 3 wholes and the bottom bar splits each whole into fourths (12 fourths total). How many groups of 3/4 fit into 3?',o:['4 groups','3 groups','9 groups','12 groups'],a:0,e:'12 fourths grouped by 3 fourths each makes 12 ÷ 3 = 4 groups. So 3 ÷ 3/4 = 4.'},
+      {t:'Concept 1 · Common Denominator Model',q:'How many 4/5-cup servings are in 2/3 cup of orange juice? (Hint: rewrite 2/3 = 10/15 and 4/5 = 12/15)',o:['5/6 of a serving','1 1/5 servings','8/15 of a serving','10/15 of a serving'],a:0,e:'Comparing 10 fifteenths to 12 fifteenths gives 10/12, which simplifies to 5/6 of a serving.'},
+      {t:'Concept 1 · Give It a Go!',q:'Use a double bar diagram to find 5/6 ÷ 5/12. (Hint: 5/6 = 10/12)',o:['2','1/2','5','25/72'],a:0,e:'Since 5/6 = 10/12, there are two groups of 5/12 inside 10/12. Also: 5/6 × 12/5 = 2.'},
+      {t:'Concept 1 · Juice Cups',q:'Lina has 3/4 cup of juice. She pours the juice into small cups that each hold 1/8 cup. How many small cups can Lina fill?',o:['6 small cups','3 small cups','8 small cups','4 small cups'],a:0,e:'3/4 ÷ 1/8 = 3/4 × 8/1 = 24/4 = 6 small cups.'},
+      {t:'Vocabulary · Multiplicative Inverse',q:'What is another name for the reciprocal of a fraction, and what is the reciprocal of 21/26?',o:['Multiplicative inverse; 26/21','Additive inverse; -21/26','Common denominator; 21/26','Quotient; 5/26'],a:0,e:'The reciprocal (multiplicative inverse) is formed by switching numerator and denominator: 26/21.'},
+      {t:'Concept 2 · Multiplicative Inverse',q:'Find the quotient in simplest form: 7/8 ÷ 21/26',o:['1 1/12','12/13','147/208','7/26'],a:0,e:'7/8 × 26/21 → simplify 7 & 21 by 7 (1 & 3) and 26 & 8 by 2 (13 & 4) → 13/12 = 1 1/12.'},
+      {t:'Concept 2 · Give It a Go!',q:'Use the multiplicative inverse to find: 3/4 ÷ 5/7',o:['1 1/20','15/28','20/21','1 5/21'],a:0,e:'3/4 × 7/5 = 21/20 = 1 1/20.'},
+      {t:'Concept 2 · Area & Width Problem',q:'A rectangular piece of land has an area of 1/2 square mile and a length of 2/5 mile. What is the width of the land? (Width = Area ÷ Length)',o:['1 1/4 miles','1/5 mile','4/5 mile','2/10 mile'],a:0,e:'Width = 1/2 ÷ 2/5 = 1/2 × 5/2 = 5/4 = 1 1/4 miles.'},
+      {t:'Guided Practice · Divide Fractions',q:'Find the quotient in simplest form: 5/8 ÷ 5/6',o:['3/4','1 1/3','25/48','5/14'],a:0,e:'5/8 × 6/5 = 30/40 = 3/4.'}
+    ]
+  },
+  {
+    id: 'u2l3',
+    num: 'Unit 2 · Lesson 3',
+    title: 'Divide Mixed Numbers',
+    desc: 'Fraction strips, renaming mixed numbers as improper fractions, multiplying by the reciprocal, and simplifying.',
+    tags: 'YouTube Video · 10 Questions',
+    defaultVideoId: 'uMTqaEbXQ6k',
+    notes: [
+      '<strong>Step 1 — Rename:</strong> Convert every mixed number into an <strong>improper fraction</strong> (Whole × Denominator + Numerator).',
+      '<strong>Step 2 — Reciprocal:</strong> Keep the first fraction, change ÷ to ×, and flip the second fraction (divisor).',
+      '<strong>Step 3 — Simplify:</strong> Divide any numerator and denominator by their <strong>GCF</strong> before multiplying.',
+      '<strong>Step 4 — Multiply & Convert:</strong> Multiply numerators and denominators, then write in simplest form.'
+    ],
+    questions: [
+      {t:'Activate Your Mind · Family Gathering',q:'A family has 8 1/4 cups of soup in total. Each guest bowl must contain exactly 1 1/2 cups. How many complete bowls of soup can they prepare?',o:['5 complete bowls (5 1/2 total)','6 complete bowls','4 complete bowls','12 complete bowls'],a:0,e:'8 1/4 ÷ 1 1/2 = 33/4 ÷ 3/2 = 33/4 × 2/3 = 11/2 = 5 1/2 bowls, so 5 complete bowls.'},
+      {t:'Concept 1 · Fraction Strips',q:'Using a fraction strip model to divide 3 3/5 into 9 equal groups (3 3/5 ÷ 9), how much is in each group?',o:['2/5','3/5','1 4/5','9/5'],a:0,e:'3 3/5 = 18/5. Splitting 18 fifths into 9 equal groups puts 2 fifths (2/5) in each group.'},
+      {t:'Task 1 · Fraction Strip Practice',q:'Find the quotient: 5 1/4 ÷ 7',o:['3/4','1 1/3','21/4','5/28'],a:0,e:'5 1/4 = 21/4. Divide by 7: 21/4 × 1/7 = 3/4.'},
+      {t:'Task 1 · Cutting a Ribbon',q:'A ribbon is 3 1/2 meters long. It is cut into 7 equal pieces. How long is each piece?',o:['1/2 meter','2 meters','3/14 meter','1 1/2 meters'],a:0,e:'3 1/2 ÷ 7 = 7/2 × 1/7 = 1/2 meter per piece.'},
+      {t:'Concept 2 · Multiplicative Inverse',q:'Find the quotient: 4 3/4 ÷ 6 5/6',o:['57/82','82/57','1 25/57','19/41'],a:0,e:'4 3/4 = 19/4 and 6 5/6 = 41/6. Multiply by reciprocal: 19/4 × 6/41 = 19/2 × 3/41 = 57/82.'},
+      {t:'Task 2 · Give It a Go!',q:'Divide: 2 2/5 ÷ 3 4/9',o:['108/155','12/31','1 47/108','54/75'],a:0,e:'2 2/5 = 12/5 and 3 4/9 = 31/9. Multiply by reciprocal: 12/5 × 9/31 = 108/155.'},
+      {t:'Task 2 · Pace per Hour',q:'Janessa runs 6 4/5 miles in 1 5/12 hours. At the same pace, how many miles will she run in 1 hour?',o:['4 4/5 miles','5 1/5 miles','9 19/30 miles','4 1/4 miles'],a:0,e:'6 4/5 ÷ 1 5/12 = 34/5 ÷ 17/12 = 34/5 × 12/17 = 2/5 × 12/1 = 24/5 = 4 4/5 miles.'},
+      {t:'Task 3 · Guided Practice 1',q:'Divide: 2 1/2 ÷ 1/2 (How many halves are in 2 1/2?)',o:['5','1 1/4','4','2 1/2'],a:0,e:'2 1/2 = 5/2. Dividing 5/2 ÷ 1/2 = 5/2 × 2/1 = 5 halves.'},
+      {t:'Task 3 · Guided Practice 2',q:'Divide and simplify: 3 3/4 ÷ 1 1/2',o:['2 1/2','5 5/8','2/5','3 1/2'],a:0,e:'3 3/4 = 15/4 and 1 1/2 = 3/2. Multiply: 15/4 × 2/3 = 5/2 = 2 1/2.'},
+      {t:'Time to Recall · Exit Card',q:'Divide in simplest form: 2 3/4 ÷ 4 1/2',o:['11/18','1 7/11','99/8','11/9'],a:0,e:'2 3/4 = 11/4 and 4 1/2 = 9/2. Multiply: 11/4 × 2/9 = 11/2 × 1/9 = 11/18.'}
+    ]
+  },
+  {
+    id: 'u3l1',
+    num: 'Unit 3 · Lesson 1',
+    title: 'Understand Integers',
+    desc: 'Positive & negative integers, zero as the origin, opposites on a number line, comparing, and real-world keywords.',
+    tags: 'YouTube Video · 10 Questions',
+    defaultVideoId: 'OAoLCXpao6s',
+    notes: [
+      '<strong>Integers:</strong> Positive whole numbers, their negative opposites, and <strong>zero</strong> (…, −3, −2, −1, 0, 1, 2, 3, …).',
+      '<strong>Zero (Origin):</strong> Zero is neither positive nor negative; it represents the starting reference point.',
+      '<strong>Opposites:</strong> Two numbers the same distance from 0 on opposite sides (e.g., <strong>−2 and +2</strong>).',
+      '<strong>Number Line Order:</strong> Numbers increase moving <strong>right</strong> and decrease moving <strong>left</strong>.'
+    ],
+    questions: [
+      {t:'Activate Your Mind · Science Museum',q:'At a science museum, Daniel is on the 3rd floor above ground level, and Karim is in the parking garage 2 levels below ground level. Which integers represent Daniel’s and Karim’s positions?',o:['Daniel: +3, Karim: -2','Daniel: -3, Karim: +2','Daniel: +3, Karim: +2','Daniel: 0, Karim: -2'],a:0,e:'Ground level is 0. Above ground is positive (+3) and below ground is negative (-2).'},
+      {t:'Mental Math · Comparing Temperatures',q:'Which temperature is colder: -2°C or -6°C, and why?',o:['-6°C, because it is farther to the left of 0 on the number line','-2°C, because 2 is smaller than 6','They are equally cold','0°C is colder than both'],a:0,e:'On a number line, numbers farther to the left are smaller. -6 is 6 units below 0, so -6°C is colder.'},
+      {t:'Guided Instruction · Delivery Elevator',q:'A delivery driver enters at ground level (0), goes down 2 floors, and then goes up 7 floors. Which integer represents his final floor?',o:['+5','-5','+9','-9'],a:0,e:'Starting at 0, going down 2 reaches -2, and going up 7 floors from -2 reaches +5.'},
+      {t:'Concept 1 · Opposites',q:'What is the opposite of -2, and why?',o:['+2, because it is 2 units to the right of 0 (same distance from 0 in the opposite direction)','0, because -2 + 2 = 0','-2, because opposites have the same sign','1/2, because you flip the fraction'],a:0,e:'-2 is 2 units left of 0, so its opposite is +2, which is 2 units right of 0.'},
+      {t:'Concept 1 · Give It a Go!',q:'The temperature in the morning is 4°C. By the afternoon, the temperature changes to the opposite value. What is the temperature in the afternoon?',o:['-4°C','0°C','+4°C','-8°C'],a:0,e:'The opposite of +4 is -4, so the afternoon temperature is -4°C.'},
+      {t:'Concept 2 · Ordering Winter Temperatures',q:'Maya recorded four winter temperatures: -7°C, 5°C, 8°C, and -3°C. What is the correct order from least (coldest) to greatest (warmest)?',o:['-7°C, -3°C, 5°C, 8°C','-3°C, -7°C, 5°C, 8°C','8°C, 5°C, -3°C, -7°C','-7°C, 5°C, -3°C, 8°C'],a:0,e:'Moving left to right on a number line gives -7, -3, 5, 8.'},
+      {t:'Concept 2 · Greatest to Least',q:'Order these integers from greatest to least: -2, 4, -5, 1, 0',o:['4, 1, 0, -2, -5','-5, -2, 0, 1, 4','4, 1, 0, -5, -2','0, 1, -2, 4, -5'],a:0,e:'From rightmost (greatest) to leftmost (least): 4, 1, 0, -2, -5.'},
+      {t:'Concept 3 · Real-World Keywords',q:'Which phrase is represented by a POSITIVE integer?',o:['A deposit of $175','A debit of $25','15° below 0° Celsius','7 meters below sea level'],a:0,e:'Deposits, gains, above sea level, and above freezing are represented by positive integers (+175).'},
+      {t:'Concept 3 · Scuba Diver',q:'Write an integer to represent this situation: A scuba diver is 7 meters below sea level.',o:['-7','+7','0','-1/7'],a:0,e:'Sea level is 0, so 7 meters below sea level is represented by -7.'},
+      {t:'Concept 3 · Bank Withdrawal',q:'Write an integer to represent this situation: Sara withdraws $18 from a bank account.',o:['-18','+18','0','180'],a:0,e:'Withdrawing money decreases the account balance, which is represented by -18.'}
+    ]
+  },
+  {
+    id: 'u3l2',
+    num: 'Unit 3 · Lesson 2',
+    title: 'Rational Numbers on the Number Line',
+    desc: 'Writing integers, fractions, terminating/repeating decimals, and mixed numbers as a/b (b ≠ 0), and ordering them.',
+    tags: 'YouTube Video · 10 Questions',
+    defaultVideoId: '9yvtLN_24G0',
+    notes: [
+      '<strong>Rational Number:</strong> Any number that can be written as a fraction <strong>a/b</strong> where <em>a</em> and <em>b</em> are integers and <strong>b ≠ 0</strong>.',
+      '<strong>All Forms Included:</strong> Integers (5 = 5/1), fractions (-6/5), terminating decimals (0.75 = 3/4), repeating decimals, and mixed numbers.',
+      '<strong>Graphing Tip:</strong> Choose an appropriate scale (such as halves, fourths, or 0.2) and use symmetry around zero.',
+      '<strong>Comparing:</strong> Convert to the same form (decimals or common denominators); numbers farther <strong>right</strong> are always greater.'
+    ],
+    questions: [
+      {t:'Activate Your Mind · Hiking Elevations',q:'Sara is 2 1/2 m above sea level, Naya is 1 3/4 m below sea level, and Maya is at sea level. Order their elevations from greatest to lowest.',o:['2 1/2, 0, -1 3/4','-1 3/4, 0, 2 1/2','0, 2 1/2, -1 3/4','2 1/2, -1 3/4, 0'],a:0,e:'Sara is +2 1/2, Maya is 0, and Naya is -1 3/4. From greatest to lowest: 2 1/2, 0, -1 3/4.'},
+      {t:'Concept 1 · Definition of Rational Number',q:'Which statement best defines a rational number?',o:['Any number that can be written as a fraction a/b where a and b are integers and b ≠ 0','Only positive whole numbers greater than zero','Only fractions between 0 and 1','Any number with a zero in the denominator'],a:0,e:'Rational numbers include all integers, fractions, mixed numbers, and terminating/repeating decimals written as a/b (b ≠ 0).'},
+      {t:'Concept 1 · Writing Integers as Fractions',q:'Is -4 a rational number? How can it be written in the form a/b?',o:['Yes, because -4 = -4/1','No, because negative numbers are not rational','No, because -4 is not a decimal','Yes, because -4 = 1/4'],a:0,e:'Every integer is a rational number because it can be written over 1: -4 = -4/1.'},
+      {t:'Concept 1 · Decimals as Rational Numbers',q:'A thermometer shows -3.5°C. Which fraction shows that -3.5 is a rational number?',o:['-7/2 (or -3 1/2)','-3/5','-35/100','-2/7'],a:0,e:'-3.5 = -3 5/10 = -3 1/2 = -7/2, which is a ratio of two integers.'},
+      {t:'Concept 1 · Equivalent Forms',q:'Which pair shows two equivalent rational numbers?',o:['-0.24 and -6/25','0.75 and 4/3','1 1/3 and 3/4','-3 and 3/1'],a:0,e:'-0.24 = -24/100, which divides by 4 to simplify to -6/25.'},
+      {t:'Concept 2 · Ordering Rational Numbers',q:'Order these rational numbers from least to greatest: 3, -1/2, -2 1/4, 3/4',o:['-2 1/4, -1/2, 3/4, 3','-1/2, -2 1/4, 3/4, 3','3, 3/4, -1/2, -2 1/4','-2 1/4, 3/4, -1/2, 3'],a:0,e:'-2 1/4 is farthest left, followed by -1/2, then positive 3/4, and finally 3.'},
+      {t:'Concept 2 · Decimal Number Line',q:'Which decimal is located farthest to the left on a number line?',o:['-2','-1.8','-1','0.2'],a:0,e:'Among negative numbers, the one farthest from zero (-2) is farthest left and therefore smallest.'},
+      {t:'Concept 2 · Give It a Go!',q:'Order these rational numbers from least to greatest: -1.5, 1/2, -2, 2.25',o:['-2, -1.5, 1/2, 2.25','-1.5, -2, 1/2, 2.25','2.25, 1/2, -1.5, -2','-2, 1/2, -1.5, 2.25'],a:0,e:'-2 is less than -1.5, followed by positive 0.5 (1/2) and 2.25.'},
+      {t:'Concept 2 · City Temperatures',q:'City A is -3°C, City B is 1.5°C, City C is -1/2°C, and City D is 2°C. Order these temperatures from coldest to warmest.',o:['-3°C, -1/2°C, 1.5°C, 2°C','-1/2°C, -3°C, 1.5°C, 2°C','2°C, 1.5°C, -1/2°C, -3°C','-3°C, 1.5°C, -1/2°C, 2°C'],a:0,e:'-3°C is coldest, then -0.5°C (-1/2°C), then 1.5°C, and 2°C is warmest.'},
+      {t:'Exit Card · Comparing Mixed Numbers & Decimals',q:'Order from least to greatest: -2 1/4, -1/2, 1.75, 0',o:['-2 1/4, -1/2, 0, 1.75','-1/2, -2 1/4, 0, 1.75','0, -1/2, 1.75, -2 1/4','1.75, 0, -1/2, -2 1/4'],a:0,e:'-2.25 (-2 1/4) < -0.5 (-1/2) < 0 < 1.75.'}
+    ]
+  },
+  {
+    id: 'u3l3',
+    num: 'Unit 3 · Lesson 3',
+    title: 'Absolute Value',
+    desc: 'Defining |x| as non-negative distance from zero regardless of direction, opposites, and real-world magnitude.',
+    tags: 'YouTube Video · 10 Questions',
+    defaultVideoId: 'wrof6Dw63Es',
+    notes: [
+      '<strong>Definition:</strong> The absolute value <strong>|x|</strong> is the <strong>distance</strong> between a number and 0 on a number line.',
+      '<strong>Always Non-Negative:</strong> Because distance is never negative, <strong>|x| ≥ 0</strong> regardless of direction (left or right).',
+      '<strong>Opposites Have Equal Absolute Value:</strong> |-4| = 4 and |4| = 4 because both are 4 units from zero.',
+      '<strong>Real-World Magnitude:</strong> Used to compare the size of debts, depths below sea level, or temperature changes from 0.'
+    ],
+    questions: [
+      {t:'Activate Your Mind · Two Turtles',q:'Two turtles start at 0 on a number line. Turtle A stops at +8 and Turtle B stops at -8. What is true about their distances from 0?',o:['Both are 8 steps from 0 because |+8| = 8 and |-8| = 8','Turtle A is farther because +8 > -8','Turtle B is -8 steps away','Turtle A is 16 steps farther than Turtle B'],a:0,e:'Opposite numbers (+8 and -8) are the same distance (8 units) from zero, so they have the same absolute value.'},
+      {t:'Guided Instruction · Drop Tower Ride',q:'One rider is 45 meters above ground (+45) and another is in an underground attraction 30 meters below ground (-30). Which rider is farther from ground level?',o:['The rider at +45 meters, because |45| = 45 > |-30| = 30','The rider at -30 meters','Both are equally far from ground level','Neither rider has an absolute value'],a:0,e:'Compare absolute values: |45| = 45 m and |-30| = 30 m. 45 m > 30 m.'},
+      {t:'Concept 1 · Absolute Value Notation',q:'What is the value of |-4| and |4|?',o:['Both equal 4','|-4| = -4 and |4| = 4','Both equal -4','|-4| = 0 and |4| = 8'],a:0,e:'Both -4 and 4 are 4 units away from zero on a number line.'},
+      {t:'Concept 1 · Group Work',q:'Evaluate: |-3.75|',o:['3.75','-3.75','0','37.5'],a:0,e:'-3.75 is 3.75 units to the left of 0, so its distance from 0 is 3.75.'},
+      {t:'Concept 1 · Give It a Go!',q:'Find the absolute value: |-9.7|',o:['9.7','-9.7','0.97','97'],a:0,e:'Absolute value measures distance from 0 and is always positive or zero: |-9.7| = 9.7.'},
+      {t:'Concept 1 · Night Temperature',q:'The temperature at night is -7°C. How far is the temperature from 0°C?',o:['7°C','-7°C','0°C','14°C'],a:0,e:'Distance from 0°C is |-7| = 7°C.'},
+      {t:'Concept 2 · Store Account Debts',q:'Rami’s shop has three account debts: Account A = -$42.80, Account B = -$67.25, Account C = -$18.90. Which account has the greatest debt?',o:['Account B, because |-67.25| = $67.25 is the largest amount owed','Account C, because -18.90 is the greatest integer','Account A, because it is first','All debts are equal'],a:0,e:'The size of a debt is the absolute value of the negative balance: $67.25 > $42.80 > $18.90.'},
+      {t:'Concept 2 · Challenge Problem',q:'Lia’s bank balance is -$32, and Lori’s balance is -$18. Who owes more money, and by how much?',o:['Lia owes $14 more (|-32| - |-18| = 32 - 18 = 14)','Lori owes $14 more because -18 > -32','Lia owes $50 more','They owe the same amount'],a:0,e:'Lia owes $32 and Lori owes $18. 32 - 18 = $14 more.'},
+      {t:'Concept 2 · Game Score Change',q:'In a game, Team A is -12 points from the starting score, while Team B is +7 points from it. Which team is farther from the starting score and by how much?',o:['Team A is 5 points farther (|-12| = 12 vs. |+7| = 7)','Team B is 19 points farther','Team A is 19 points farther','Both are 7 points away'],a:0,e:'|-12| = 12 and |+7| = 7. Team A is 12 - 7 = 5 points farther from the starting score.'},
+      {t:'Exit Card · Morning vs. Afternoon',q:'The morning temperature is -5°C and the afternoon temperature is +3°C. Which temperature is farther from 0°C?',o:['-5°C, because |-5| = 5 > |3| = 3','+3°C, because 3 > -5','Both are 2°C from zero','Neither is from zero'],a:0,e:'|-5| = 5 units from 0, whereas |3| = 3 units from 0, so -5°C is farther from 0°C.'}
+    ]
+  }
+];
+
+/* Custom SVG Visual Diagrams for Worksheet Part 4 (Q4a–Q4e) */
+const WORKSHEET_DIAGRAMS = {
+  model4a: `<svg viewBox="0 0 460 155" width="430" height="145">
+    <text x="12" y="20" font-size="12" font-weight="700" fill="#111">4 batches × 2/3 cup of flour = 8/3 = 2 2/3 cups</text>
+    <!-- Batch 1 -->
+    <text x="12" y="54" font-size="11" font-weight="700" fill="#333">Batch 1</text>
+    <rect x="75" y="36" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="108" y="52" font-size="11" font-weight="700">1/3</text>
+    <rect x="157" y="36" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="190" y="52" font-size="11" font-weight="700">1/3</text>
+    <rect x="239" y="36" width="82" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.8"/><text x="272" y="52" font-size="11" fill="#666">1/3</text>
+    <!-- Batch 2 -->
+    <text x="12" y="84" font-size="11" font-weight="700" fill="#333">Batch 2</text>
+    <rect x="75" y="66" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="108" y="82" font-size="11" font-weight="700">1/3</text>
+    <rect x="157" y="66" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="190" y="82" font-size="11" font-weight="700">1/3</text>
+    <rect x="239" y="66" width="82" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.8"/><text x="272" y="82" font-size="11" fill="#666">1/3</text>
+    <!-- Batch 3 -->
+    <text x="12" y="114" font-size="11" font-weight="700" fill="#333">Batch 3</text>
+    <rect x="75" y="96" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="108" y="112" font-size="11" font-weight="700">1/3</text>
+    <rect x="157" y="96" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="190" y="112" font-size="11" font-weight="700">1/3</text>
+    <rect x="239" y="96" width="82" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.8"/><text x="272" y="112" font-size="11" fill="#666">1/3</text>
+    <!-- Batch 4 -->
+    <text x="12" y="144" font-size="11" font-weight="700" fill="#333">Batch 4</text>
+    <rect x="75" y="126" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="108" y="142" font-size="11" font-weight="700">1/3</text>
+    <rect x="157" y="126" width="82" height="24" fill="#d6a0ad" stroke="#111" stroke-width="1.8"/><text x="190" y="142" font-size="11" font-weight="700">1/3</text>
+    <rect x="239" y="126" width="82" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.8"/><text x="272" y="142" font-size="11" fill="#666">1/3</text>
+    <text x="334" y="96" font-size="12" font-weight="800" fill="#111">8 shaded thirds</text>
+    <text x="334" y="114" font-size="12" font-weight="800" fill="#9a6477">= 8/3 = 2 2/3</text>
+  </svg>`,
+  model4b: `<svg viewBox="0 0 470 135" width="440" height="128">
+    <text x="12" y="20" font-size="12" font-weight="700" fill="#111">3 mixtures × 5/8 liter of water = 15/8 = 1 7/8 liters</text>
+    <!-- Mixture 1 -->
+    <text x="10" y="52" font-size="11" font-weight="700" fill="#333">Mix 1</text>
+    <g transform="translate(55,34)">
+      <rect x="0" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="9" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="36" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="45" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="72" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="81" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="108" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="117" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="144" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="153" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="180" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+      <rect x="216" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+      <rect x="252" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+    </g>
+    <!-- Mixture 2 -->
+    <text x="10" y="84" font-size="11" font-weight="700" fill="#333">Mix 2</text>
+    <g transform="translate(55,66)">
+      <rect x="0" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="9" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="36" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="45" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="72" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="81" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="108" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="117" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="144" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="153" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="180" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+      <rect x="216" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+      <rect x="252" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+    </g>
+    <!-- Mixture 3 -->
+    <text x="10" y="116" font-size="11" font-weight="700" fill="#333">Mix 3</text>
+    <g transform="translate(55,98)">
+      <rect x="0" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="9" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="36" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="45" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="72" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="81" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="108" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="117" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="144" y="0" width="36" height="24" fill="#83c7ed" stroke="#111" stroke-width="1.5"/><text x="153" y="16" font-size="9.5" font-weight="700">1/8</text>
+      <rect x="180" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+      <rect x="216" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+      <rect x="252" y="0" width="36" height="24" fill="#f3f3f3" stroke="#111" stroke-width="1.5"/>
+    </g>
+    <text x="355" y="76" font-size="12" font-weight="800" fill="#111">15 shaded eighths</text>
+    <text x="355" y="94" font-size="12" font-weight="800" fill="#28688c">= 15/8 = 1 7/8 L</text>
+  </svg>`,
+  nl4c: `<svg viewBox="0 0 460 115" width="430" height="108">
+    <line x1="20" y1="62" x2="440" y2="62" stroke="#111" stroke-width="2.5"/>
+    <polygon points="20,62 28,57 28,67" fill="#111"/><polygon points="440,62 432,57 432,67" fill="#111"/>
+    <!-- Ticks -5 to 5 at x = 40 + (i+5)*38 -->
+    <g font-size="12" font-weight="700" text-anchor="middle" fill="#111">
+      <line x1="40" y1="54" x2="40" y2="70" stroke="#111" stroke-width="2"/><text x="40" y="88">-5</text>
+      <line x1="78" y1="54" x2="78" y2="70" stroke="#111" stroke-width="2"/><text x="78" y="88">-4</text>
+      <line x1="116" y1="54" x2="116" y2="70" stroke="#111" stroke-width="2"/><text x="116" y="88">-3</text>
+      <line x1="154" y1="54" x2="154" y2="70" stroke="#111" stroke-width="2"/><text x="154" y="88">-2</text>
+      <line x1="192" y1="54" x2="192" y2="70" stroke="#111" stroke-width="2"/><text x="192" y="88">-1</text>
+      <line x1="230" y1="50" x2="230" y2="74" stroke="#111" stroke-width="2.8"/><text x="230" y="90">0</text>
+      <line x1="268" y1="54" x2="268" y2="70" stroke="#111" stroke-width="2"/><text x="268" y="88">1</text>
+      <line x1="306" y1="54" x2="306" y2="70" stroke="#111" stroke-width="2"/><text x="306" y="88">2</text>
+      <line x1="344" y1="54" x2="344" y2="70" stroke="#111" stroke-width="2"/><text x="344" y="88">3</text>
+      <line x1="382" y1="54" x2="382" y2="70" stroke="#111" stroke-width="2"/><text x="382" y="88">4</text>
+      <line x1="420" y1="54" x2="420" y2="70" stroke="#111" stroke-width="2"/><text x="420" y="88">5</text>
+    </g>
+    <!-- Distance arrows -->
+    <line x1="116" y1="34" x2="226" y2="34" stroke="#c0392b" stroke-width="2.2"/><text x="173" y="26" font-size="11" font-weight="800" fill="#c0392b" text-anchor="middle">|-3| = 3 units</text>
+    <line x1="234" y1="34" x2="344" y2="34" stroke="#1e8449" stroke-width="2.2"/><text x="287" y="26" font-size="11" font-weight="800" fill="#1e8449" text-anchor="middle">|3| = 3 units</text>
+    <circle cx="116" cy="62" r="6.5" fill="#c0392b"/><circle cx="344" cy="62" r="6.5" fill="#1e8449"/>
+  </svg>`,
+  nl4d: `<svg viewBox="0 0 460 110" width="430" height="104">
+    <line x1="20" y1="60" x2="440" y2="60" stroke="#111" stroke-width="2.5"/>
+    <polygon points="20,60 28,55 28,65" fill="#111"/><polygon points="440,60 432,55 432,65" fill="#111"/>
+    <!-- -2 to 2: x = 230 + val*95 -->
+    <g stroke="#111" stroke-width="1.5">
+      <line x1="40" y1="50" x2="40" y2="70" stroke-width="2.4"/>
+      <line x1="63.75" y1="55" x2="63.75" y2="65"/><line x1="87.5" y1="54" x2="87.5" y2="66"/><line x1="111.25" y1="55" x2="111.25" y2="65"/>
+      <line x1="135" y1="50" x2="135" y2="70" stroke-width="2.4"/>
+      <line x1="158.75" y1="55" x2="158.75" y2="65"/><line x1="182.5" y1="54" x2="182.5" y2="66"/><line x1="206.25" y1="55" x2="206.25" y2="65"/>
+      <line x1="230" y1="48" x2="230" y2="72" stroke-width="2.8"/>
+      <line x1="253.75" y1="55" x2="253.75" y2="65"/><line x1="277.5" y1="54" x2="277.5" y2="66"/><line x1="301.25" y1="55" x2="301.25" y2="65"/>
+      <line x1="325" y1="50" x2="325" y2="70" stroke-width="2.4"/>
+      <line x1="348.75" y1="55" x2="348.75" y2="65"/><line x1="372.5" y1="54" x2="372.5" y2="66"/><line x1="396.25" y1="55" x2="396.25" y2="65"/>
+      <line x1="420" y1="50" x2="420" y2="70" stroke-width="2.4"/>
+    </g>
+    <g font-size="12" font-weight="700" text-anchor="middle" fill="#111">
+      <text x="40" y="88">-2</text><text x="135" y="88">-1</text><text x="230" y="88">0</text><text x="325" y="88">1</text><text x="420" y="88">2</text>
+    </g>
+    <!-- Plotted points: -1.75 (63.75), -0.25 (206.25), 0.5 (277.5), 1.5 (372.5) -->
+    <circle cx="63.75" cy="60" r="6" fill="#8e44ad"/><text x="63.75" y="38" font-size="11" font-weight="800" fill="#8e44ad" text-anchor="middle">-1 3/4</text>
+    <circle cx="206.25" cy="60" r="6" fill="#c0392b"/><text x="202" y="38" font-size="11" font-weight="800" fill="#c0392b" text-anchor="middle">-0.25</text>
+    <circle cx="277.5" cy="60" r="6" fill="#1f618d"/><text x="277.5" y="38" font-size="11" font-weight="800" fill="#1f618d" text-anchor="middle">0.5</text>
+    <circle cx="372.5" cy="60" r="6" fill="#1e8449"/><text x="372.5" y="38" font-size="11" font-weight="800" fill="#1e8449" text-anchor="middle">1.5</text>
+  </svg>`,
+  nl4e: `<svg viewBox="0 0 460 110" width="430" height="104">
+    <line x1="20" y1="60" x2="440" y2="60" stroke="#111" stroke-width="2.5"/>
+    <polygon points="20,60 28,55 28,65" fill="#111"/><polygon points="440,60 432,55 432,65" fill="#111"/>
+    <g stroke="#111" stroke-width="1.5">
+      <line x1="40" y1="50" x2="40" y2="70" stroke-width="2.4"/>
+      <line x1="63.75" y1="55" x2="63.75" y2="65"/><line x1="87.5" y1="54" x2="87.5" y2="66"/><line x1="111.25" y1="55" x2="111.25" y2="65"/>
+      <line x1="135" y1="50" x2="135" y2="70" stroke-width="2.4"/>
+      <line x="158.75" y1="55" x2="158.75" y2="65"/><line x1="182.5" y1="54" x2="182.5" y2="66"/><line x1="206.25" y1="55" x2="206.25" y2="65"/>
+      <line x1="230" y1="48" x2="230" y2="72" stroke-width="2.8"/>
+      <line x1="253.75" y1="55" x2="253.75" y2="65"/><line x1="277.5" y1="54" x2="277.5" y2="66"/><line x1="301.25" y1="55" x2="301.25" y2="65"/>
+      <line x1="325" y1="50" x2="325" y2="70" stroke-width="2.4"/>
+      <line x1="348.75" y1="55" x2="348.75" y2="65"/><line x1="372.5" y1="54" x2="372.5" y2="66"/><line x1="396.25" y1="55" x2="396.25" y2="65"/>
+      <line x1="420" y1="50" x2="420" y2="70" stroke-width="2.4"/>
+    </g>
+    <g font-size="12" font-weight="700" text-anchor="middle" fill="#111">
+      <text x="40" y="88">-2</text><text x="135" y="88">-1</text><text x="230" y="88">0</text><text x="325" y="88">1</text><text x="420" y="88">2</text>
+    </g>
+    <!-- Plotted points: -2 (40), -0.75 (158.75), 1/4 (253.75), 1 3/4 (396.25) -->
+    <circle cx="40" cy="60" r="6" fill="#8e44ad"/><text x="40" y="38" font-size="11" font-weight="800" fill="#8e44ad" text-anchor="middle">-2</text>
+    <circle cx="158.75" cy="60" r="6" fill="#c0392b"/><text x="158.75" y="38" font-size="11" font-weight="800" fill="#c0392b" text-anchor="middle">-0.75</text>
+    <circle cx="253.75" cy="60" r="6" fill="#1f618d"/><text x="255" y="38" font-size="11" font-weight="800" fill="#1f618d" text-anchor="middle">1/4</text>
+    <circle cx="396.25" cy="60" r="6" fill="#1e8449"/><text x="396.25" y="38" font-size="11" font-weight="800" fill="#1e8449" text-anchor="middle">1 3/4</text>
+  </svg>`
+};
+
+/* Data Tables for Worksheet Part 2 (Set A and Set B) */
+const WORKSHEET_TABLES = {
+  setA: `<div class="data-table-wrap"><table class="data-table">
+    <thead><tr><th>Account</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr></thead>
+    <tbody><tr><td><strong>Balance ($)</strong></td><td>−35.50</td><td>20</td><td>−48.25</td><td>−12</td><td>0</td></tr></tbody>
+  </table></div>`,
+  setB: `<div class="data-table-wrap"><table class="data-table">
+    <thead><tr><th>Student</th><th>Sara</th><th>Naya</th><th>Maya</th><th>Omar</th><th>Lina</th></tr></thead>
+    <tbody><tr><td><strong>Elevation (m)</strong></td><td>12.5</td><td>−8 <span class="frac"><span class="num">3</span><span class="den">4</span></span></td><td>0</td><td>−15</td><td>6 <span class="frac"><span class="num">1</span><span class="den">2</span></span></td></tr></tbody>
+  </table></div>`
+};
+
+/* EXACT 15 Part 1 Multiple-Choice Questions from Grade 6 Revision Worksheet */
+const WORKSHEET_PART_1 = [
+  {type:'mcq',t:'Part 1 · Q1',q:'1.  3/4 × 2/9 = ?',o:['1/6','5/13','6/13','27/8'],a:0,e:'3/4 × 2/9 = 6/36, which simplifies by dividing numerator and denominator by 6 to 1/6.'},
+  {type:'mcq',t:'Part 1 · Q2',q:'2.  5/6 × 3/10 = ?',o:['8/16','1/4','15/6','1/2'],a:1,e:'Cross-simplify 5 & 10 by 5 (1 & 2) and 3 & 6 by 3 (1 & 2): 1/2 × 1/2 = 1/4.'},
+  {type:'mcq',t:'Part 1 · Q3',q:'3. What is the reciprocal of 9/5 ?',o:['-9/5','5/9','9/5','1/5'],a:1,e:'The reciprocal (multiplicative inverse) of 9/5 is found by switching numerator and denominator: 5/9.'},
+  {type:'mcq',t:'Part 1 · Q4',q:'4.  2/3 ÷ 1/6 = ?',o:['1/9','1/4','2/18','4'],a:3,e:'2/3 ÷ 1/6 = 2/3 × 6/1 = 12/3 = 4.'},
+  {type:'mcq',t:'Part 1 · Q5',q:'5.  5/8 ÷ 5/12 = ?',o:['1 1/2','25/96','2/3','1 1/4'],a:0,e:'5/8 × 12/5 = 12/8 = 3/2 = 1 1/2.'},
+  {type:'mcq',t:'Part 1 · Q6',q:'6.  1 1/2 × 3 1/3 = ?',o:['3 1/6','4 5/6','5','4'],a:2,e:'Convert to improper fractions: 1 1/2 = 3/2 and 3 1/3 = 10/3. Multiply: 3/2 × 10/3 = 10/2 = 5.'},
+  {type:'mcq',t:'Part 1 · Q7',q:'7.  3 3/4 ÷ 1 1/4 = ?',o:['4 11/16','3','1/3','2 1/2'],a:1,e:'3 3/4 = 15/4 and 1 1/4 = 5/4. Multiply by reciprocal: 15/4 × 4/5 = 15/5 = 3.'},
+  {type:'mcq',t:'Part 1 · Q8',q:'8. Which integer represents a deposit of $40 ?',o:['-40','0','1/40','+40'],a:3,e:'A deposit adds money to an account, so it is represented by +40.'},
+  {type:'mcq',t:'Part 1 · Q9',q:'9. The temperature is 12°C below zero. Which integer represents it?',o:['12','-12','0','-1/12'],a:1,e:'Temperatures below zero are represented by negative integers: -12.'},
+  {type:'mcq',t:'Part 1 · Q10',q:'10. What is the opposite of 25 ?',o:['25','0','-25','1/25'],a:2,e:'-25 is the same distance (25 units) from zero as 25, on the opposite side of the number line.'},
+  {type:'mcq',t:'Part 1 · Q11',q:'11. Which of the following numbers is the least?',o:['-1.5','-1','0.5','-1 3/4'],a:3,e:'-1 3/4 = -1.75, which is farthest to the left on the number line and therefore the least.'},
+  {type:'mcq',t:'Part 1 · Q12',q:'12. What is the value of |-7.5| ?',o:['-7.5','7.5','0','75'],a:1,e:'Absolute value measures distance from 0, which is always non-negative: |-7.5| = 7.5.'},
+  {type:'mcq',t:'Part 1 · Q13',q:'13. Which number has the greatest absolute value?',o:['6','-4','-9','8'],a:2,e:'|6| = 6, |-4| = 4, |-9| = 9, and |8| = 8. Therefore, -9 has the greatest absolute value (9).'},
+  {type:'mcq',t:'Part 1 · Q14',q:'14. Which number is NOT an integer?',o:['-8','0','15','2/3'],a:3,e:'Integers are positive whole numbers, their negative opposites, and 0. Fractions like 2/3 are rational numbers, not integers.'},
+  {type:'mcq',t:'Part 1 · Q15',q:'15. Which statement is TRUE?',o:['-7 > -1','|-4| = -4','-2.5 < -2','|0| > |-1|'],a:2,e:'On a number line, -2.5 is to the left of -2, so -2.5 < -2 is TRUE.'}
+];
+
+/* EXACT 19 Parts 2–5 Written, Data Analysis, Models & Reasoning Questions with Official Answer Key */
+const WORKSHEET_PARTS_2_TO_5 = [
+  /* Part 2: Data Analysis (7 questions) */
+  {type:'written',t:'Part 2 · Set A (a) [2 marks]',maxMarks:2,table:'setA',q:'Part 2 — Set A (a): The table shows the balances of five accounts in a small shop.\nOrder the balances from least to greatest. [2 marks]',points:['Correct ascending order from leftmost to rightmost on a number line: -48.25, -35.50, -12, 0, 20. [2 marks]']},
+  {type:'written',t:'Part 2 · Set A (b) [2 marks]',maxMarks:2,table:'setA',q:'Part 2 — Set A (b): Which account has the greatest debt? Use absolute value to explain. [2 marks]',points:['Account C has the greatest debt. [1 mark]','Because |-48.25| = $48.25 is the largest distance from $0 among the negative balances (48.25 > 35.50 > 12). [1 mark]']},
+  {type:'written',t:'Part 2 · Set A (c) [2 marks]',maxMarks:2,table:'setA',q:'Part 2 — Set A (c): How much more debt does Account C have than Account A? [2 marks]',points:['Subtract the debt magnitudes: $48.25 − $35.50 [1 mark]','= $12.75 more debt. [1 mark]']},
+  {type:'written',t:'Part 2 · Set A (d) [2 marks]',maxMarks:2,table:'setA',q:'Part 2 — Set A (d): Which account balance is closest to $0 without being 0? Explain. [2 marks]',points:['Account D (-$12) is closest to $0 without being 0. [1 mark]','Because |-12| = 12 is the smallest non-zero distance from 0 (12 < 20 < 35.50 < 48.25). [1 mark]']},
+  {type:'written',t:'Part 2 · Set B (e) [2 marks]',maxMarks:2,table:'setB',q:'Part 2 — Set B (e): Five students recorded their elevations (in meters) during a field trip.\nOrder the elevations from greatest to least. [2 marks]',points:['Correct descending order from highest to lowest: 12.5, 6 1/2, 0, -8 3/4, -15. [2 marks]']},
+  {type:'written',t:'Part 2 · Set B (f) [2 marks]',maxMarks:2,table:'setB',q:'Part 2 — Set B (f): Which student is farthest from sea level? Which student is at sea level? [2 marks]',points:['Omar (-15 m) is farthest from sea level because |-15| = 15 m. [1 mark]','Maya (0 m) is at sea level. [1 mark]']},
+  {type:'written',t:'Part 2 · Set B (g) [2 marks]',maxMarks:2,table:'setB',q:'Part 2 — Set B (g): Who is farther from sea level, Naya or Lina? By how much? [2 marks]',points:['Compare absolute values: Naya |-8 3/4| = 8.75 m and Lina |6 1/2| = 6.5 m, so Naya is farther from sea level. [1 mark]','8.75 − 6.5 = 2.25 m (or 2 1/4 m) farther. [1 mark]']},
+
+  /* Part 3: Solve & Word Problems (7 questions) */
+  {type:'written',t:'Part 3 · (a) [2 marks]',maxMarks:2,q:'Part 3 (a): Multiply and write your answer in simplest form:\n7/10 × 5/14 [2 marks]',points:['Multiply numerators and denominators (or cross-simplify): 7/10 × 5/14 = 35/140 [1 mark]','Simplify to lowest terms: 1/4. [1 mark]']},
+  {type:'written',t:'Part 3 · (b) [2 marks]',maxMarks:2,q:'Part 3 (b): Divide and write your answer in simplest form:\n4 1/2 ÷ 3/4 [2 marks]',points:['Convert 4 1/2 to 9/2 and multiply by the reciprocal 4/3: 9/2 × 4/3 [1 mark]','= 36/6 = 6. [1 mark]']},
+  {type:'written',t:'Part 3 · (c) [2 marks]',maxMarks:2,q:'Part 3 (c): Multiply and write your answer in simplest form:\n2 2/5 × 1 1/4 [2 marks]',points:['Convert both mixed numbers to improper fractions: 12/5 × 5/4 [1 mark]','Simplify (cancel 5s and divide 12 by 4) = 3. [1 mark]']},
+  {type:'written',t:'Part 3 · (d) [2 marks]',maxMarks:2,q:'Part 3 (d): Divide and write your answer in simplest form:\n5/6 ÷ 2 1/2 [2 marks]',points:['Convert 2 1/2 to 5/2 and multiply by its reciprocal 2/5: 5/6 × 2/5 [1 mark]','= 10/30 = 1/3. [1 mark]']},
+  {type:'written',t:'Part 3 · (e) [2 marks]',maxMarks:2,q:'Part 3 (e): A ribbon is 6 3/4 m long. It is cut into pieces that are each 3/4 m long. How many pieces are there? [2 marks]',points:['Set up division and convert: 6 3/4 ÷ 3/4 = 27/4 ÷ 3/4 = 27/4 × 4/3 [1 mark]','= 9 pieces. [1 mark]']},
+  {type:'written',t:'Part 3 · (f) [2 marks]',maxMarks:2,q:'Part 3 (f): Ahmad ran 2 1/2 km. His sister ran 3/5 of that distance. How far did his sister run? [2 marks]',points:['Multiply 3/5 × 2 1/2 = 3/5 × 5/2 [1 mark]','= 3/2 = 1 1/2 km. [1 mark]']},
+  {type:'written',t:'Part 3 · (g) [2 marks]',maxMarks:2,q:'Part 3 (g): A jug holds 3 1/3 L of juice. How many glasses of 5/6 L can be filled? [2 marks]',points:['Divide 3 1/3 ÷ 5/6 = 10/3 ÷ 5/6 = 10/3 × 6/5 [1 mark]','= 60/15 = 4 glasses. [1 mark]']},
+
+  /* Part 4: Models & Number Lines (5 questions) */
+  {type:'written',t:'Part 4 · (a) [2 marks]',maxMarks:2,diagram:'model4a',q:'Part 4 (a): Mariam uses 2/3 cup of flour for each batch of cookies. She makes 4 batches. How many cups of flour does she use altogether? Show your work with a bar model. [2 marks]',points:['Bar model shows 4 bars divided into thirds with 2/3 shaded in each (8 shaded thirds total). [1 mark]','Calculation: 2/3 × 4/1 = 8/3 = 2 2/3 cups of flour. [1 mark]']},
+  {type:'written',t:'Part 4 · (b) [2 marks]',maxMarks:2,diagram:'model4b',q:'Part 4 (b): Ahmed uses 5/8 liter of water for each mixture. He makes 3 mixtures. How many liters of water does he use altogether? Show your work with a bar model. [2 marks]',points:['Bar model shows 3 bars divided into eighths with 5/8 shaded in each (15 shaded eighths total). [1 mark]','Calculation: 5/8 × 3/1 = 15/8 = 1 7/8 liters of water. [1 mark]']},
+  {type:'written',t:'Part 4 · (c) [2 marks]',maxMarks:2,diagram:'nl4c',q:'Part 4 (c): Locate -3 and its opposite on the number line (-5 to 5). Then find |-3| and |3|. What do you notice? [2 marks]',points:['Points plotted at -3 and +3 on the number line; |-3| = 3 and |3| = 3. [1 mark]','Observation: Opposites are the same distance from 0, so they have the same absolute value. [1 mark]']},
+  {type:'written',t:'Part 4 · (d) [2 marks]',maxMarks:2,diagram:'nl4d',q:'Part 4 (d): Graph the numbers on the number line (-2 to 2): -1 3/4, 0.5, -0.25, 1.5 [2 marks]',points:['Points plotted accurately at -1.75 (-1 3/4), -0.25, 0.5, and 1.5 from left to right. [2 marks]']},
+  {type:'written',t:'Part 4 · (e) [2 marks]',maxMarks:2,diagram:'nl4e',q:'Part 4 (e): Graph the numbers on the number line (-2 to 2): -2, 1 3/4, -0.75, 1/4 [2 marks]',points:['Points plotted accurately at -2, -0.75, 0.25 (1/4), and 1.75 (1 3/4) from left to right. [2 marks]']},
+
+  /* Part 5: Explain, Evaluate & Communicate (6 questions) */
+  {type:'written',t:'Part 5 · (a) [3 marks]',maxMarks:3,q:'Part 5 (a): Complete each sentence with the correct word:\ni. Numbers that are the same distance from 0 but on opposite sides are called ________.\nii. To divide by a fraction, multiply by its ________.\niii. Positive whole numbers, their opposites, and zero are called ________. [3 marks]',points:['i. opposites [1 mark]','ii. reciprocal (or multiplicative inverse) [1 mark]','iii. integers [1 mark]']},
+  {type:'written',t:'Part 5 · (b) [2 marks]',maxMarks:2,q:'Part 5 (b): Sami solved: 1 1/3 × 1 1/2 = 1 1/6.\nIs Sami correct? Find his mistake and write the correct answer. [2 marks]',points:['Not correct: Sami multiplied the whole parts (1 × 1) and fraction parts (1/3 × 1/2) separately instead of converting to improper fractions. [1 mark]','Correct solution: 4/3 × 3/2 = 12/6 = 2. [1 mark]']},
+  {type:'written',t:'Part 5 · (c) [2 marks]',maxMarks:2,q:'Part 5 (c): Huda solved: 3/4 ÷ 3/8 = 4/3 × 3/8 = 1/2.\nIs Huda correct? Find her mistake and write the correct answer. [2 marks]',points:['Not correct: Huda took the reciprocal of the first fraction (3/4) instead of the second fraction (divisor 3/8). [1 mark]','Correct solution: 3/4 × 8/3 = 24/12 = 2. [1 mark]']},
+  {type:'written',t:'Part 5 · (d) [2 marks]',maxMarks:2,q:'Part 5 (d): Rami says: "|-10| = -10." Do you agree? Explain. [2 marks]',points:['Disagree: Absolute value represents distance from 0 on a number line, which is never negative. [1 mark]','|-10| = 10 because -10 is 10 units away from 0. [1 mark]']},
+  {type:'written',t:'Part 5 · (e) [2 marks]',maxMarks:2,q:'Part 5 (e): Maya says: "-2.5 is greater than -2 because 2.5 is greater than 2." Do you agree? Explain. [2 marks]',points:['Disagree: -2.5 is farther to the left of 0 than -2 on the number line. [1 mark]','Numbers farther to the left are smaller, so -2.5 < -2. [1 mark]']},
+  {type:'written',t:'Part 5 · (f) [2 marks]',maxMarks:2,q:'Part 5 (f): Write a real-life situation that can be represented by the integer -20. What does 0 mean in your situation? [2 marks]',points:['Valid real-life negative situation: e.g., A scuba diver is 20 meters below sea level (-20), or a bank withdrawal of $20 (-20). [1 mark]','Meaning of 0: 0 represents sea level (or no money withdrawn/deposited). [1 mark]']}
+];
+
+/* State & Persistence */
+const STORAGE_KEY = 'math_gr6_akam_scores_v1';
+let savedScores = {};
+try { savedScores = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { savedScores = {}; }
+function persistScores() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(savedScores)); } catch {} }
+
+let activeLessonIdx = 0;
+let wsMode = 'all';
+let session = [];
+let answersState = [];
+let qIndex = 0;
+let youtubeDirect = '';
+let customLessonVideos = {};
+
+const $ = id => document.getElementById(id);
+
+/* Sound toggle */
+$('soundToggle').addEventListener('click', () => {
+  soundEnabled = !soundEnabled;
+  $('soundToggle').textContent = soundEnabled ? '🔊 SFX: ON' : '🔇 SFX: OFF';
+  if (soundEnabled) playSFX('correct');
+});
+
+/* Full-screen animated page transitions */
+function showScreen(id) {
+  const next = $(id);
+  const current = document.querySelector('.screen.active');
+  $('navDashboard').style.display = (id === 'intro' || id === 'dashboard') ? 'none' : 'inline-flex';
+  if (current === next) return;
+  if (current) {
+    current.classList.remove('active');
+    current.classList.add('leaving');
+    setTimeout(() => current.classList.remove('leaving'), 480);
+  }
+  next.scrollTop = 0;
+  next.classList.remove('leaving');
+  next.classList.add('active');
+}
+
+function shuffle(a) {
+  const x = [...a];
+  for (let i = x.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [x[i], x[j]] = [x[j], x[i]];
+  }
+  return x;
+}
+
+/* Dashboard Rendering */
+function renderDashboard() {
+  const grid = $('lessonsGrid');
+  grid.innerHTML = '';
+  let completedCount = 0;
+
+  LESSONS.forEach((les, idx) => {
+    const best = savedScores[les.id];
+    if (typeof best === 'number') completedCount++;
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'section-card lesson-card';
+    card.innerHTML = `
+      <div>
+        <div class="card-top">
+          <span class="lesson-num">${les.num}</span>
+          <span class="score-badge ${typeof best === 'number' ? 'done' : ''}">${typeof best === 'number' ? `Best: ${best}%` : 'Not started'}</span>
+        </div>
+        <h3>${les.title}</h3>
+        <p>${les.desc}</p>
+      </div>
+      <div class="card-bottom">
+        <span class="card-tags">▶ ${les.tags}</span>
+        <span class="card-cta">${typeof best === 'number' ? 'Review Video & Quiz →' : 'Watch Video →'}</span>
+      </div>
+    `;
+    card.addEventListener('click', () => openLesson(idx));
+    grid.appendChild(card);
+  });
+
+  const wsBest = savedScores['worksheet'];
+  if (typeof wsBest === 'number') completedCount++;
+  const wsBadge = $('wsBadge');
+  wsBadge.textContent = typeof wsBest === 'number' ? `Best Score: ${wsBest}%` : 'Not attempted';
+  wsBadge.classList.toggle('done', typeof wsBest === 'number');
+
+  $('masteryPill').innerHTML = `Completed: <strong>${completedCount} / ${LESSONS.length + 1}</strong>`;
+}
+
+function goDashboard() {
+  renderDashboard();
+  showScreen('dashboard');
+}
+
+$('startJourney').addEventListener('click', goDashboard);
+$('navDashboard').addEventListener('click', goDashboard);
+$('lessonToDash').addEventListener('click', goDashboard);
+$('resultDashBtn').addEventListener('click', goDashboard);
+$('brandHome').addEventListener('click', () => showScreen('intro'));
+
+/* Worksheet Mode Selector */
+document.querySelectorAll('[data-ws-mode]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    wsMode = btn.dataset.wsMode;
+    document.querySelectorAll('[data-ws-mode]').forEach(b => b.classList.toggle('active', b === btn));
+  });
+});
+$('startWorksheetBtn').addEventListener('click', () => startQuiz(-1));
+
+/* YouTube Video Launcher */
+function updateVideoLauncher(vidId, title) {
+  const ytUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(vidId)}`;
+  $('videoThumbImg').src = `https://img.youtube.com/vi/${encodeURIComponent(vidId)}/hqdefault.jpg`;
+  $('videoCardHeading').textContent = title;
+  const openYt = () => window.open(ytUrl, '_blank', 'noopener,noreferrer');
+  $('videoLauncherCard').onclick = openYt;
+  $('videoLauncherCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openYt(); } };
+}
+
+function openLesson(idx) {
+  activeLessonIdx = idx;
+  const les = LESSONS[idx];
+  $('lessonKicker').textContent = `${les.num} · YouTube Video Explainer`;
+  $('lessonTitle').textContent = les.title;
+
+  const vidId = customLessonVideos[les.id] || les.defaultVideoId;
+  updateVideoLauncher(vidId, les.title);
+
+  const notesUl = $('lessonNotesList');
+  notesUl.innerHTML = les.notes.map(n => `<li>${n}</li>`).join('');
+  $('customLessonVidInput').value = '';
+
+  showScreen('lesson');
+}
+
+$('saveLessonVidBtn').addEventListener('click', () => {
+  const parsed = parseYoutube($('customLessonVidInput').value);
+  if (!parsed || !parsed.videoId) {
+    $('customLessonVidInput').setCustomValidity('Paste a valid YouTube video URL.');
+    $('customLessonVidInput').reportValidity();
+    return;
+  }
+  $('customLessonVidInput').setCustomValidity('');
+  const les = LESSONS[activeLessonIdx];
+  customLessonVideos[les.id] = parsed.videoId;
+  updateVideoLauncher(parsed.videoId, les.title);
+  $('customLessonVidInput').value = '';
+});
+
+$('startLessonQuizBtn').addEventListener('click', () => startQuiz(activeLessonIdx));
+
+/* Quiz & Exact Final Worksheet Engine */
+function startQuiz(idx) {
+  activeLessonIdx = idx;
+  const isWorksheet = idx === -1;
+
+  if (isWorksheet) {
+    let list = [];
+    if (wsMode === 'all') list = [...WORKSHEET_PART_1, ...WORKSHEET_PARTS_2_TO_5];
+    else if (wsMode === 'part1') list = [...WORKSHEET_PART_1];
+    else list = [...WORKSHEET_PARTS_2_TO_5];
+    session = list;
+  } else {
+    session = shuffle(LESSONS[idx].questions).map(item => {
+      const indexedOptions = item.o.map((text, i) => ({ text, isCorrect: i === item.a }));
+      const shuffledOptions = shuffle(indexedOptions);
+      return {
+        type: 'mcq',
+        t: item.t,
+        q: item.q,
+        o: shuffledOptions.map(x => x.text),
+        a: shuffledOptions.findIndex(x => x.isCorrect),
+        e: item.e
+      };
+    });
+  }
+
+  answersState = session.map(() => ({
+    answered: false,
+    choice: null,
+    correct: false,
+    writtenText: '',
+    revealed: false,
+    earnedMarks: null
+  }));
+
+  qIndex = 0;
+  $('quizModuleKicker').textContent = isWorksheet
+    ? (wsMode === 'all' ? '★ Final Revision Worksheet (Parts 1–5 · 34 Questions)' : wsMode === 'part1' ? '★ Final Worksheet · Part 1 (15 MCQs)' : '★ Final Worksheet · Parts 2–5 (19 Questions)')
+    : `${LESSONS[idx].num} · Knowledge Check`;
+  $('quizHeading').textContent = isWorksheet ? 'Grade 6 Mathematics Revision Worksheet (Units 2 & 3)' : LESSONS[idx].title;
+
+  const jump = $('jumpSelect');
+  jump.innerHTML = session.map((item, i) => {
+    const shortLabel = isWorksheet ? item.t.replace(/\s*\[.*\]/, '') : `Question ${i + 1}`;
+    return `<option value="${i}">${shortLabel}</option>`;
+  }).join('');
+
+  showScreen('quiz');
+  renderQuestion();
+}
+
+$('jumpSelect').addEventListener('change', e => {
+  qIndex = Number(e.target.value);
+  renderQuestion();
+});
+
+function renderQuestion() {
+  const q = session[qIndex];
+  const st = answersState[qIndex];
+  $('jumpSelect').value = String(qIndex);
+  $('counter').textContent = `${qIndex + 1} / ${session.length}`;
+  $('progressBar').style.width = `${((qIndex + (st.answered ? 1 : 0)) / session.length) * 100}%`;
+  $('topic').textContent = q.t;
+  $('question').innerHTML = fmtMath(q.q);
+
+  $('tableSlot').innerHTML = q.table ? WORKSHEET_TABLES[q.table] : '';
+  $('diagramSlot').innerHTML = q.diagram ? `<div class="diagram-box">${WORKSHEET_DIAGRAMS[q.diagram]}</div>` : '';
+
+  $('feedback').className = 'feedback';
+  $('feedback').innerHTML = '';
+  $('options').innerHTML = '';
+  $('writtenSlot').innerHTML = '';
+  $('prevBtn').disabled = qIndex === 0;
+  $('nextBtn').textContent = qIndex === session.length - 1 ? 'Finish & See Score (%) →' : 'Next question →';
+
+  if (q.type === 'written') {
+    $('kbHint').style.display = 'none';
+    const wrap = document.createElement('div');
+    const ta = document.createElement('textarea');
+    ta.className = 'written-area';
+    ta.placeholder = 'Show your steps, ordering, number line locations, or explanation here, then reveal the official answer key below...';
+    ta.value = st.writtenText;
+    ta.addEventListener('input', () => { st.writtenText = ta.value; });
+    wrap.appendChild(ta);
+
+    const revealBtn = document.createElement('button');
+    revealBtn.type = 'button';
+    revealBtn.className = 'btn secondary';
+    revealBtn.style.marginTop = '10px';
+    revealBtn.textContent = st.revealed ? 'Official Answer Key Revealed ✓' : 'Reveal Official Answer Key & Self-Grade';
+    revealBtn.disabled = st.revealed;
+    wrap.appendChild(revealBtn);
+
+    const schemeDiv = document.createElement('div');
+    schemeDiv.className = 'mark-scheme';
+    schemeDiv.style.display = st.revealed ? 'block' : 'none';
+    const pointsHtml = q.points.map(pt => `<li>${fmtMath(pt)}</li>`).join('');
+    schemeDiv.innerHTML = `
+      <h4>Official Answer Key &amp; Marking Guide (${q.maxMarks} marks)</h4>
+      <ol>${pointsHtml}</ol>
+      <div class="self-grade-row">
+        <span>Award yourself marks:</span>
+        <button type="button" class="grade-chip ${st.earnedMarks === q.maxMarks ? 'selected-full' : ''}" data-award="${q.maxMarks}">Full Marks (${q.maxMarks}/${q.maxMarks}) ✓</button>
+        <button type="button" class="grade-chip ${st.earnedMarks !== null && st.earnedMarks > 0 && st.earnedMarks < q.maxMarks ? 'selected-part' : ''}" data-award="${q.maxMarks / 2}">Half Marks (${q.maxMarks / 2}/${q.maxMarks})</button>
+        <button type="button" class="grade-chip ${st.earnedMarks === 0 ? 'selected-zero' : ''}" data-award="0">0 Marks (0/${q.maxMarks})</button>
+      </div>
+    `;
+    wrap.appendChild(schemeDiv);
+    $('writtenSlot').appendChild(wrap);
+
+    revealBtn.addEventListener('click', () => {
+      st.revealed = true;
+      revealBtn.disabled = true;
+      revealBtn.textContent = 'Official Answer Key Revealed ✓';
+      schemeDiv.style.display = 'block';
+      $('status').textContent = 'Select how many marks you earned above.';
+    });
+
+    schemeDiv.querySelectorAll('[data-award]').forEach(gBtn => {
+      gBtn.addEventListener('click', () => {
+        const val = Number(gBtn.dataset.award);
+        st.earnedMarks = val;
+        st.answered = true;
+        st.correct = val >= q.maxMarks / 2;
+        playSFX(val > 0 ? 'correct' : 'wrong');
+        schemeDiv.querySelectorAll('[data-award]').forEach(b => b.classList.remove('selected-full', 'selected-part', 'selected-zero'));
+        if (val === q.maxMarks) gBtn.classList.add('selected-full');
+        else if (val > 0) gBtn.classList.add('selected-part');
+        else gBtn.classList.add('selected-zero');
+        $('status').textContent = `Recorded: ${val} / ${q.maxMarks} marks`;
+        $('nextBtn').disabled = false;
+        $('progressBar').style.width = `${((qIndex + 1) / session.length) * 100}%`;
+      });
+    });
+
+    $('status').textContent = st.answered ? `Recorded: ${st.earnedMarks} / ${q.maxMarks} marks` : 'Write your answer and reveal the official answer key.';
+    $('nextBtn').disabled = !st.answered;
+  } else {
+    $('kbHint').style.display = 'flex';
+    q.o.forEach((label, i) => {
+      const b = document.createElement('button');
+      b.className = 'option';
+      const letter = document.createElement('span');
+      letter.className = 'letter';
+      letter.textContent = String.fromCharCode(65 + i);
+      const txt = document.createElement('span');
+      txt.innerHTML = fmtMath(label);
+      b.append(letter, txt);
+
+      if (st.answered) {
+        b.disabled = true;
+        if (i === q.a) b.classList.add('correct');
+        if (i === st.choice && st.choice !== q.a) b.classList.add('wrong');
+      } else {
+        b.addEventListener('click', () => choose(i));
+      }
+      $('options').appendChild(b);
+    });
+
+    if (st.answered) {
+      $('status').textContent = st.correct ? 'Correct answer ✓' : 'Review the step-by-step solution';
+      $('feedback').innerHTML = `<strong>${st.correct ? 'That’s right!' : 'Not quite.'}</strong> ${fmtMath(q.e)}`;
+      $('feedback').classList.add('show');
+      $('nextBtn').disabled = false;
+    } else {
+      $('status').textContent = 'Choose the best answer.';
+      $('nextBtn').disabled = true;
+    }
+  }
+}
+
+function choose(choice) {
+  const st = answersState[qIndex];
+  if (st.answered) return;
+  const q = session[qIndex];
+  st.answered = true;
+  st.choice = choice;
+  st.correct = choice === q.a;
+
+  playSFX(st.correct ? 'correct' : 'wrong');
+
+  const buttons = [...$('options').children];
+  buttons.forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.a) b.classList.add('correct');
+    if (i === choice && choice !== q.a) b.classList.add('wrong');
+  });
+  $('status').textContent = st.correct ? 'Correct answer ✓' : 'Review the step-by-step solution';
+  $('feedback').innerHTML = `<strong>${st.correct ? 'That’s right!' : 'Not quite.'}</strong> ${fmtMath(q.e)}`;
+  $('feedback').classList.add('show');
+  $('nextBtn').disabled = false;
+  $('progressBar').style.width = `${((qIndex + 1) / session.length) * 100}%`;
+}
+
+$('prevBtn').addEventListener('click', () => {
+  if (qIndex > 0) {
+    qIndex--;
+    renderQuestion();
+  }
+});
+
+function nextQuestion() {
+  if (!answersState[qIndex].answered) return;
+  if (qIndex < session.length - 1) {
+    qIndex++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+}
+
+$('nextBtn').addEventListener('click', nextQuestion);
+
+function finishQuiz() {
+  showScreen('result');
+
+  let earnedTotal = 0;
+  let possibleTotal = 0;
+  session.forEach((q, i) => {
+    const st = answersState[i];
+    if (q.type === 'written') {
+      possibleTotal += q.maxMarks;
+      earnedTotal += (st.earnedMarks || 0);
+    } else {
+      possibleTotal += 1;
+      if (st.correct) earnedTotal += 1;
+    }
+  });
+
+  const pct = Math.round((earnedTotal / possibleTotal) * 100);
+  const isWorksheet = activeLessonIdx === -1;
+  const key = isWorksheet ? 'worksheet' : LESSONS[activeLessonIdx].id;
+  if (typeof savedScores[key] !== 'number' || pct > savedScores[key]) {
+    savedScores[key] = pct;
+    persistScores();
+  }
+
+  $('resultKicker').textContent = isWorksheet ? 'Final Revision Worksheet Complete' : `${LESSONS[activeLessonIdx].num} Complete`;
+  $('scorePct').textContent = `${pct}%`;
+  $('scoreRaw').textContent = isWorksheet
+    ? `${earnedTotal} / ${possibleTotal} total marks earned`
+    : `${earnedTotal} out of ${possibleTotal} correct`;
+  $('resultTitle').textContent = pct >= 90 ? 'Outstanding math mastery!' : pct >= 70 ? 'Great job!' : pct >= 50 ? 'Solid effort — keep practising!' : 'Keep going — you’ve got this!';
+  $('resultText').textContent = isWorksheet
+    ? `You achieved ${pct}% on the Grade 6 Mathematics Revision Worksheet (Units 2 & 3).`
+    : `You scored ${pct}% on ${LESSONS[activeLessonIdx].title}. Ready to continue to the next lesson?`;
+
+  const nextBtn = $('nextLessonBtn');
+  if (isWorksheet) {
+    nextBtn.style.display = 'none';
+  } else if (activeLessonIdx < LESSONS.length - 1) {
+    nextBtn.style.display = 'inline-block';
+    nextBtn.textContent = `Next: ${LESSONS[activeLessonIdx + 1].title} →`;
+    nextBtn.onclick = () => openLesson(activeLessonIdx + 1);
+  } else {
+    nextBtn.style.display = 'inline-block';
+    nextBtn.textContent = '★ Start Final Worksheet →';
+    nextBtn.onclick = () => startQuiz(-1);
+  }
+}
+
+$('retryBtn').addEventListener('click', () => startQuiz(activeLessonIdx));
+
+/* Themes */
+function setTheme(theme) {
+  document.body.dataset.theme = theme;
+  document.querySelectorAll('[data-theme-choice]').forEach(b => b.classList.toggle('active', b.dataset.themeChoice === theme));
+  const colors = { burgundy: '#21131c', blue: '#091522', mono: '#111111' };
+  document.querySelector('meta[name="theme-color"]').content = colors[theme] || colors.burgundy;
+}
+document.querySelectorAll('[data-theme-choice]').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.themeChoice)));
+
+/* YouTube Link Parser */
+function parseYoutube(value) {
+  try {
+    const u = new URL(value.trim());
+    const host = u.hostname.replace(/^www\./, '');
+    let videoId = '', listId = u.searchParams.get('list') || '';
+    if (host === 'youtu.be') {
+      videoId = u.pathname.split('/').filter(Boolean)[0] || '';
+    } else if (['youtube.com', 'm.youtube.com', 'music.youtube.com'].includes(host)) {
+      const parts = u.pathname.split('/').filter(Boolean);
+      if (u.pathname === '/watch') { videoId = u.searchParams.get('v') || ''; }
+      else if (['embed', 'shorts', 'live', 'v'].includes(parts[0])) { videoId = parts[1] || ''; }
+      else if (parts[0] === 'playlist' && listId) {
+        return { videoId: '', direct: `https://music.youtube.com/playlist?list=${encodeURIComponent(listId)}` };
+      }
+    } else { return null; }
+    if (!videoId && !listId) return null;
+    if (videoId) {
+      return {
+        videoId,
+        direct: `https://music.youtube.com/watch?v=${encodeURIComponent(videoId)}${listId ? `&list=${encodeURIComponent(listId)}` : ''}`
+      };
+    }
+    return { videoId: '', direct: `https://music.youtube.com/playlist?list=${encodeURIComponent(listId)}` };
+  } catch { return null; }
+}
+
+$('saveYoutube').addEventListener('click', () => {
+  const parsed = parseYoutube($('youtubeLink').value);
+  if (!parsed) {
+    $('youtubeLink').setCustomValidity('Paste a valid YouTube Music or YouTube video/playlist link.');
+    $('youtubeLink').reportValidity();
+    return;
+  }
+  $('youtubeLink').setCustomValidity('');
+  youtubeDirect = parsed.direct;
+  $('musicMini').classList.add('visible');
+  closeSettings();
+  window.open(youtubeDirect, 'ytMusicMini', 'width=420,height=540,left=30,top=120,resizable=yes');
+});
+
+$('musicMini').addEventListener('click', () => {
+  if (youtubeDirect) window.open(youtubeDirect, 'ytMusicMini', 'width=420,height=540,left=30,top=120,resizable=yes');
+});
+
+function openSettings() { $('settingsBackdrop').classList.add('open'); }
+function closeSettings() { $('settingsBackdrop').classList.remove('open'); }
+$('settingsOpen').addEventListener('click', openSettings);
+$('settingsClose').addEventListener('click', closeSettings);
+$('settingsBackdrop').addEventListener('click', e => { if (e.target === $('settingsBackdrop')) closeSettings(); });
+
+/* Keyboard Shortcuts (1–4 for A–D options + Enter for Next) */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeSettings(); return; }
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const active = document.activeElement;
+  if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.tagName === 'SELECT')) return;
+  if ($('quiz').classList.contains('active')) {
+    const q = session[qIndex];
+    const st = answersState[qIndex];
+    if (q && q.type === 'mcq' && ['1', '2', '3', '4', '5'].includes(e.key) && !st.answered) {
+      const optIdx = Number(e.key) - 1;
+      if (optIdx < q.o.length) { e.preventDefault(); choose(optIdx); }
+    } else if (e.key === 'Enter' && st && st.answered) {
+      if (active && active.tagName === 'BUTTON') return;
+      e.preventDefault();
+      nextQuestion();
+    }
+  }
+});
+
+setTheme('burgundy');
+</script>
+</body>
+</html>
